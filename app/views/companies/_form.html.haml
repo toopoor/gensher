@@ -1,0 +1,9 @@
+= simple_form_for @company, html: { class: 'form-vertical'} do |f|
+  = f.input :name, placeholder: t('.placeholders.name')
+  = f.input :logo, as: :file
+  = f.input :video_url, placeholder: t('.placeholders.video_url')
+  = f.input :description, placeholder: t('.placeholders.description')
+  = f.input :marketing, placeholder: t('.placeholders.marketing').html_safe
+  - if @company.persisted? && current_user.admin?
+    = f.input :moderated
+  = f.button :submit

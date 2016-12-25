@@ -1,0 +1,21 @@
+.row.border-bottom
+  %nav.navbar.navbar-static-top.white-bg{:role => "navigation", :style => "margin-bottom: 0"}
+    .navbar-header
+      %a.navbar-minimalize.minimalize-styl-2.btn.btn-primary{:href => "#"}
+        %i.fa.fa-bars
+      %form.navbar-form-custom.hidden{:action => "#", :method => "post", :role => "search"}
+        .form-group
+          %input#top-search.form-control{:name => "top-search", :placeholder => "Search for something...", :type => "text"}/
+    %ul.nav.navbar-top-links.navbar-right
+      %li
+        %span Нас уже
+        %span.label.label-success #{total_users}
+      - if user_signed_in?
+        %li
+          = link_to edit_user_registration_path, title: current_user.login do
+            %i.fa.fa-user
+            = t('.profile', default: 'Profile')
+        %li
+          = link_to destroy_user_session_path, method: 'delete' do
+            %i.fa.fa-sign-out
+            = t('.logout', default: 'Sign out')

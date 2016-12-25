@@ -1,0 +1,33 @@
+- user = current_user.decorate
+.media
+  .widget.lazur-bg
+    %h3.media-heading.text-center= t('.title')
+    %p.text-center= t('.up_date', date: user.statistic_up_date)
+    %dl.dl-horizontal.dl-250
+      %dt= t('.balance')
+      %dd= user.balance
+    %dl.dl-horizontal.dl-250
+      %dt= t('.all_children')
+      %dd= user.children_count
+    %dl.dl-horizontal.dl-250
+      %dt= t('.first_line')
+      %dd= user.first_line_count
+    %dl.dl-horizontal.dl-250
+      %dt= t('.potential')
+      %dd= user.account_potential
+    %dl.dl-horizontal.dl-250
+      %dt= t('.new_children')
+      %dd= user.new_children_count
+    %dl.dl-horizontal.dl-250
+      %dt= t('.all_vouchers')
+      %dd= Voucher::Base.count
+
+    %dl.dl-horizontal.dl-250
+      %dt= t('.requqests_vouchers')
+      %dd= VoucherRequest.not_rejected.count
+
+    %dl.dl-horizontal.dl-250
+      %dt= t('.completed_vouchers')
+      %dd= Voucher::Base.completed.count
+    .flot-chart
+      .flot-chart-content#flot-statistics

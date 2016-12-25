@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : t('site.title')
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : t('site.description')}"}
+    %meta{property: 'og:title', content: t('site.fb_title') }
+    %meta{property: 'og:site_name', content: t('site.fb_site_name')}
+    %meta{property: 'og:description', content: t('site.fb_description')}
+    = render 'layouts/favicons'
+    / Main css styles
+    = stylesheet_link_tag    'inspinia', media: 'all', 'data-turbolinks-track' => true
+    / Include style per-controller - vendor plugins
+    = stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css")
+    / Main javascript files
+    = javascript_include_tag 'application_inspinia', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    - unless Rails.env.development?
+      = render 'layouts/yametrika'
+      = render 'layouts/sender'
+    =render 'layouts/inspinia/messages'
+    #wrapper
+      =render 'layouts/inspinia/navigation_left'
+      #page-wrapper.gray-bg
+        =render 'layouts/inspinia/navigation_top'
+        .wrapper.wrapper-content.animated.fadeInRight
+          .row
+            =yield
+    = render 'layouts/footer'
+    = params[:controller]
+    = javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js")
+    = yield :javascript

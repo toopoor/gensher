@@ -1,0 +1,11 @@
+- user = activity.trackable.decorate
+
+.media.ibox-content
+  %span.pull-left #{user.icon}
+  .media-body
+    .media-heading
+      - if user.parent
+        #{user.link_to_profile} зарегистрировался, по ссылке от #{user.parent.decorate.full_name}.
+      -# elsif user.invited_by
+        #{user.link_to_profile} получил приглашение от #{user.invited_by.decorate.full_name}.
+    .text-muted #{user.updated_at}  / #{time_ago_in_words(activity.created_at)}

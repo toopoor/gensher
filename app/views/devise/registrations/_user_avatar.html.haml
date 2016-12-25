@@ -1,0 +1,41 @@
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name, format: :json), html: { method: :put, id: 'avatar_form', multipart: true, autocomplete: 'off', remote: true } ) do |f|
+  .avatar.text-center
+    = image_tag(f.object.avatar.source.thumb.url, id: 'avatar', class: 'img-thumbnail')
+    .clearfix
+    = f.label :avatar, class: 'bth btn-xs btn-primary', title: t('.select_avatar') do
+      = icon('upload')
+    - if f.object.avatar.present?
+      = link_to('', id: 'edit_avatar', class: 'btn btn-xs btn-success', title: t('.edit_avatar'), data: {toggle: "modal", target: "#avatar-crop-modal"}) do
+        = icon('pencil')
+    = link_to('', id: 'remove_avatar', class: 'btn btn-xs btn-danger', title: t('.remove_avatar')) do
+      = icon('ban')
+    = f.input :avatar, as: :file, label: false, input_html: { class: 'hidden'}
+    = f.input :remove_avatar, as: :hidden
+    = f.input :avatar_cache, as: :hidden
+    .progress.progress-striped.active.hidden
+      .progress-bar(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+        %span.sr-only
+
+#avatar-crop-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="CropModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+        %h4.modal-title= t('.crop_avatar')
+      .modal-body
+        .avatar-target.text-center
+          = image_tag(resource.avatar.source.url, id: 'avatar-target', data: {w: resource.avatar.source.width, h: resource.avatar.source.height})
+        .avatar-result.row
+          .col-xs-8.text-center
+            .avatar-thumb.avatar-preview
+              = image_tag(resource.avatar.source.url, id: 'avatar-thumb', data: {w: resource.avatar.source.thumb.width, h: resource.avatar.source.thumb.height})
+          .col-xs-4.text-center
+            .avatar-icon.avatar-preview
+              = image_tag(resource.avatar.source.url, id: 'avatar-icon', data: {w: resource.avatar.source.icon.width, h: resource.avatar.source.icon.height})
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name, format: :json), html: { method: :put, id: 'crop_avatar_form', autocomplete: 'off', remote: true } ) do |f|
+          - %w(crop_x crop_y crop_w crop_h).each do |attribute|
+            = f.hidden_field attribute, id: attribute
+
+      .modal-footer
+        %button(type="button" class="btn btn-default btn-sm" data-dismiss="modal")= t('static.close')
+        %button(type="button" class="btn btn-primary" id="save_crop")= t('static.save_changes')

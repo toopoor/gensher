@@ -1,0 +1,8 @@
+var user = $('#node_#{dom_id(@user)}');
+var actions = user.find('.actions');
+- if @user.completed?
+  user.find('.balance').html('#{@user.balance}');
+  actions.after('#{@user.tree_controls}');
+  actions.remove();
+- else
+  actions.addClass('has-error');

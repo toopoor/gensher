@@ -1,0 +1,34 @@
+%script{ type: "text/javascript", src:"http://vk.com/js/api/share.js?90", charset: "windows-1251"}
+- if Rails.application.secrets.auth_facebook_id
+  %script{ :src => "http://connect.facebook.net/en_US/all.js"}
+  :javascript
+    FB.init({
+      appId: #{Rails.application.secrets.auth_facebook_id},
+      cookie:true,
+      status:true,
+      xfbml:true,
+      frictionlessRequests: true
+    });
+    function FacebookInviteFriends(){
+      FB.ui({ method: 'apprequests', message: "#{I18n.t('invitations.facebook_msg', url: current_user.decorate.affiliate_link)}"});
+    }
+
+%ul.panel-collapse.collapse.nav.nav-second-level#instruments
+  %li{ class: active_current_page?(instruments_first_line_path) }
+    = link_to(t('.sms_portal'), instruments_first_line_path)
+  %li= link_to(t('.visitka'), current_user.vizitka_link)
+  %li
+    :javascript
+      document.write(VK.Share.button({
+        url: "#{current_user.decorate.affiliate_link}",
+        title: "#{t('invitations.vk_title')}",
+        description: "#{I18n.t('invitations.facebook_msg', url: current_user.decorate.affiliate_link)}",
+        image: "#{url_to_image('logo-45.png')}",
+        noparse: true
+      }, { type: 'custom', text: "#{t('.app_vk')}" }));
+  %li
+    - if Rails.application.secrets.auth_facebook_id
+      = link_to(t('.app_fb'), '#fb', onclick: 'FacebookInviteFriends();')
+      .fb-root
+  %li{ class: active_current_page?(new_user_invitation_path) }
+    = link_to(t('.email_invitations'), new_user_invitation_path)

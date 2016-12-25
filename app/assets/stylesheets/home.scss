@@ -1,0 +1,180 @@
+@import 'override_variables';
+
+header .top_menu .navbar-default {
+  background: $brand-primary;
+  color: $gray-light;
+  .container {
+    height: 85px;
+    background: image_url('home/header.png') no-repeat;
+    .navbar-collapse {
+      margin-top: 15px;
+    }
+    a.navbar-brand {
+      background: transparent;
+      margin-left: 50px;
+      width: 300px;
+    }
+
+  }
+  a {
+    color: $gray-lighter;
+  }
+  a:hover {
+    color: $brand-info;
+    background: white;
+  }
+}
+
+#main-conteiner {
+  min-height: 400px;
+}
+
+.container {
+  .left_menu {
+    .nav > li {
+      background: #F4F4F4;
+    }
+    .nav > li > a {
+      font-size: 1.1em;
+      padding: 4px 0 0 14px;
+      border-radius: 0;
+    }
+    .nav > li > a:hover {
+      background: #e9e9e9 image_url('home/right-bg.png') right no-repeat;
+    }
+    .admin {
+      border: 1px solid $alert-danger-border;
+    }
+    .admin > li, .admin > li > a {
+      background: none;
+    }
+    .admin > li > a:hover {
+      background-image: none;
+      background-color: $alert-danger-bg;
+    }
+  }
+
+  .three-columns {
+    h3, p {
+      margin: 0 10% 10px;
+    }
+  }
+
+  .content {
+    margin-left: 20px;
+    margin-right: -20px;
+  }
+
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  min-height: 30px;
+  background: #2f4050;
+  color: $gray-light;
+  a:hover {
+    color: $gray-light;
+  }
+  hr {
+    border-top: 1px solid #444;
+  }
+  p {
+    color: #CCC;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .copyright, a {
+    color: $gray-lighter;
+  }
+
+  .phone {
+    color: $gray-lighter;
+    font-size: 1.1em;
+  }
+
+  .social a {
+    margin-right: 8px;
+    color: $gray-lighter;
+    background-color: $gray;
+    height: 28px;
+    display: inline-block;
+    width: 28px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 3px;
+  }
+
+  .social a:hover {
+    color: $gray;
+    background-color: $gray-lighter;
+  }
+}
+
+.home.index hr {
+  margin: 40px;
+}
+
+.underline-pionted, .underline-pionted:hover {
+  text-decoration: none;
+  border-bottom: 1px dashed $gray-light;
+}
+
+@font-face {
+  font-family: 'digi';
+  src: font-url('ds-digi.ttf') format('truetype');
+}
+
+#total_counter {
+  vertical-align: baseline;
+  margin-right: 40px;
+  .label {
+    color: white;
+    font-weight: 100;
+    font-size: 1.4em;
+  }
+
+  .digits {
+    font-family: 'digi';
+    @include gradient-radial(#fff, #dfdfdf);
+    @include border-top-radius(7px);
+    @include border-right-radius(7px);
+    @include border-bottom-radius(7px);
+    @include border-left-radius(7px);
+    padding: 3px 10px;
+    font-size: 2.5em;
+    color: $link-color;
+    border: 3px solid white;
+    margin: 3px;
+  }
+
+}
+
+.small-plan-activation {
+  &__list {
+    width: 100%;
+  }
+  &__item {
+    height: 35px;
+    width: calc( 10% - 2px);
+    display: inline-block;
+    background-color: rgba($brand-primary, 0.5);
+    margin: 0 1px;
+    span {
+      content: " ";
+      display: block;
+      height: 100%;
+    }
+    &.active {
+      span {
+        background-color: $brand-success;
+      }
+    }
+    &.payed {
+      span {
+        background-color: $brand-danger;
+      }
+    }
+  }
+}

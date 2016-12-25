@@ -1,0 +1,10 @@
+- tab_types = PursePayment::Base.tab_types_by(current_user)
+#purse_payments
+  %nav.navbar.navbar-default{role: 'navigation'}
+    %ul.nav.nav-pills
+      - tab_types.each do |type|
+        %li= link_to(t(type, scope: 'nav_types'), "##{type}", data: {toggle: 'tab', url: type_purse_payments_path(type: type)})
+
+  .tab-content
+    - tab_types.each do |type|
+      .tab-pane{id: type}

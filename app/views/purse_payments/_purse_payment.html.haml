@@ -1,0 +1,4 @@
+%tr{id: dom_id(purse_payment), class: dom_id(purse_payment)}
+  %td= purse_payment_counter+1
+  - PursePayment::Base.public_attrs_by(current_user).each do |attr|
+    %td{class: attr}= purse_payment.send(attr)

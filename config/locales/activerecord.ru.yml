@@ -1,0 +1,127 @@
+ru:
+  activerecord:
+    models:
+      user:
+        one:   Пользователь
+        few:   Пользователя
+        many:  Пользователей
+        other: Пользователи
+      'voucher/credit': '$500 набор команды'
+      'voucher/half_segment': '$250 +50%'
+      'voucher/five_segment': '$100 +50%'
+
+    attributes:
+      'payment/base':
+        amount: Сумма
+        created_at: Создано
+        type: Тип
+        identifier: Идентификатор
+        state: Статус
+        user_balance: Текущий баланс
+        payer_id: 'Платежная система'
+        comment: 'Комментарий'
+        invoice_file: 'Подтвержд. скан'
+      'payment/cash_deposit':
+        amount: Сумма
+      activation_request:
+        created_at: Создано
+        state: 'Статус'
+        invoices: 'Документы'
+        pay_system: 'Предпочтительная платежная система'
+        comment: 'Комментарий'
+        plan: 'Тариф'
+      voucher_request:
+        created_at: Создано
+        state: 'Статус'
+        sponsor: 'Спонсор'
+      'voucher/base':
+        created_at: Создано
+        state: 'Статус'
+      payment:
+        amount: Сумма
+        created_at: Создано
+        type: Тип
+        identifier: Идентификатор
+        state: Статус
+        user_balance: Текущий баланс
+        payer_id: 'Предпочтительная платежная система'
+      'purse_payment/base':
+        amount: Сумма
+        created_at: Создано
+        purse: Кошелек
+        source_purse: Источник
+        source_payment: Платеж-источник
+        target: Ресурс
+        name: Название
+        state: Статус
+        payment_name: Тип платежа
+        description: Описание
+        params: Доп. параметры
+      old_user:
+        fio: Фамилия Имя Отчество
+        email: Email
+        sms_phone: Телефон
+        skype: Skype
+
+      user:
+        plan: Биллинг план
+        email: Email
+        login: Email или телефон
+        phone: Телефон
+        password: Пароль
+        password_confirmation: Повторите пароль
+        remember_me: Запомнить меня
+        username: Логин
+        avatar: Аватар
+        first_name: Имя
+        last_name: Фамилия
+        middle_name: Отчество
+        skype: Skype
+        address: Адрес
+        parent: Рефер
+        current_password: Текущий пароль
+        about_me: 'О себе'
+        success_story: 'Моя история успеха'
+      message:
+        message_type: 'Тип сообщения'
+        subject: Тема
+        body: Сообщение
+        is_active: 'Активировать'
+
+      company:
+        name: 'Название'
+        logo: 'Логотип'
+        video_url: 'Ссылка на видео(Youtube)'
+        description: 'Краткое описание'
+        marketing: 'Расчет по формуле'
+        moderated: 'Проверено администратором'
+      landing_contact:
+        name: 'Ваше имя'
+        email: 'Ваш Email'
+        phone: 'Ваш номер телефона'
+        address: 'Ваш адрес'
+        message: 'Введите своё сообщение'
+
+    errors:
+      models:
+        payment:
+          attributes:
+            amount:
+              no_amount_in_user_purse: 'Недостаточно средств для вывода'
+        user:
+          parent:
+            blank: Регистрация доступна только по приглашению
+
+        old_user:
+          base:
+            not_imported: Укажите Email и телефон
+
+
+      contact:
+        attributes:
+          email:
+            invalid: не верный формат
+          message:
+            blank: не может быть пустым
+          name:
+            blank: не может быть пустым

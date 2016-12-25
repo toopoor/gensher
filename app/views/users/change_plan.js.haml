@@ -1,0 +1,3 @@
+var change_plan = $('#change_plan_block');
+change_plan.html('#{j(render 'devise/registrations/change_plan', user: @user.decorate)}');
+$('#activation_note').removeClass('hidden');

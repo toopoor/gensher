@@ -1,0 +1,13 @@
+
+- user = defined?(resource) ? resource : User.new
+= simple_form_for(user, as: :user, url: session_url(:user, subdomain: false)) do |f|
+  .form-group
+    = f.text_field :login, placeholder: 'Введите емейл или телефон', class: 'form-control'
+  .form-group
+    = f.text_field :password, placeholder: 'Пароль', class: 'form-control', type: :password
+  .form-group
+    %label
+      = f.check_box :remember_me, class: 'i-checks'
+      = t('activerecord.attributes.user.remember_me')
+  .form-group
+    = f.button :submit, t('.sign_in'), class: 'btn btn-primary block full-width m-b'

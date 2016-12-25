@@ -1,0 +1,2 @@
+%ol.gtree.sortable_tree.expandable{ data: { rebuild_url: rebuild_users_url, expand_node_url: expand_node_users_url, cookie_store: :true, cookie_scope: @users.first.class } }
+  = expandable_tree @users, {render_module: UsersHelper, hide_ordering: !current_user.admin?}

@@ -1,0 +1,36 @@
+- tab_types = ActivationRequest::TAB_TYPES
+#activation-requests
+  %nav.navbar.navbar-default{role: 'navigation'}
+    %ul.nav.nav-pills
+      - tab_types.each do |type|
+        %li= link_to(t(type, scope: 'activation_requests.nav_types'), "##{type}", data: {toggle: 'tab', url: list_activation_requests_path(type: type)})
+
+  .tab-content
+    - tab_types.each do |type|
+      .tab-pane{id: type}
+
+.modal.fade#activation-request-comment-modal(tabindex="-1" role="dialog" aria-labelledby="ActivationRequestCommentModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+        %h4.modal-title= t('.modal.comment')
+      .modal-body
+        = form_tag('', remote: true, authenticity_token: true) do
+          .form-group= text_area_tag 'activation_request[comment]', '', placeholder: t('.modal.comment_placeholder'), class: 'form-control'
+      .modal-footer
+        %button.btn.btn-default.btn-sm(type="button" data-dismiss="modal")= t('static.close')
+        %button.btn.btn-primary#save_comment(type="submit")= t('.modal.save_comment')
+
+.modal.fade#activation-request-change-plan-modal(tabindex="-1" role="dialog" aria-labelledby="ActivationRequestChangePlanModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+        %h4.modal-title= t('.modal.change_plan')
+      .modal-body
+        = form_tag('', remote: true, authenticity_token: true) do
+          .form-group= select_tag 'plan', options_for_select(User.plans.keys.map { |plan| [t(".plans.#{plan}"), plan] }), class: 'form-control'
+      .modal-footer
+        %button.btn.btn-default.btn-sm(type="button" data-dismiss="modal")= t('static.close')
+        %button.btn.btn-primary#change_plan(type="submit")= t('.modal.change_plan')

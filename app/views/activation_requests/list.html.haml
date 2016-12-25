@@ -1,0 +1,16 @@
+- if @activation_requests.empty?
+  .well.well-sm
+    %h4= t('static.empty')
+- else
+  %table.table.table-striped.activation_requests__table
+    %thead
+      %tr
+        %th #
+        %th= t('static.user')
+        - ActivationRequest::PUBLIC_ATTRS.each do |attr|
+          %th= ActivationRequest.human_attribute_name(attr)
+        %th= t('static.actions')
+    %tbody{id: "#{@type}_payments"}
+      = render 'activation_requests', activation_requests: @activation_requests
+
+  #paginate= paginate @activation_requests, remote: true

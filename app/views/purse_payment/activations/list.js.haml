@@ -1,0 +1,2 @@
+$("##{@type}_activations").html("#{ j(render 'purse_payment/activations/activations', activations: @activations)}");
+$('##{@type}').find('#paginate').html("#{ j(paginate @activations, remote: true)}");

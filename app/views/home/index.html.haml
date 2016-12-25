@@ -1,0 +1,19 @@
+= render 'layouts/inspinia/empty/video'
+.row.h-710
+  .col-sm-6
+    .text-center.animated.fadeInDown
+      = render 'layouts/inspinia/empty/logo'
+  .col-sm-6
+    .middle-box.text-center.loginscreen.animated.fadeInDown
+      = render 'devise/sessions/form'
+      = link_to t('devise.shared.links.forgot_your_password',
+                  default: 'Forgot your password?'), new_user_password_path
+      - if request.env['affiliate.tag']
+        - if devise_mapping.omniauthable?
+          %p
+            = render 'devise/shared/omniauth_links',
+                      providers: resource_class.omniauth_providers
+        %p.text-white.text-center Еще не зарегистрированы?
+        = link_to 'Регистрация',
+                   new_user_registration_path,
+                   class: 'btn btn-sm btn-warning btn-block'

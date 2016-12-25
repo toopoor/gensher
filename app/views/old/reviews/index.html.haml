@@ -1,0 +1,17 @@
+.messages
+  - @reviews.each do |review|
+    - next if review.user.email.nil?
+    = div_for(review, class: 'row message') do
+      .col-xs-4
+        %div= review.user.fio
+        %div= review.user.email
+        %div
+          Tel:
+          = review.user && review.user.tel
+
+      .col-xs-8
+        %pre!= review.content
+        .text-center
+          = link_to('Перенести', migrate_old_review_path(review), class: 'btn btn-success btn-xs', remote: true)
+
+= paginate @reviews

@@ -1,0 +1,3 @@
+class ParentInvoiceUploader < InvoiceUploader
+
+end

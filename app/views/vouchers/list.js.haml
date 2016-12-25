@@ -1,0 +1,3 @@
+var vouchers = $("##{@type}_vouchers");
+vouchers.html("#{ j(render 'vouchers', vouchers: @vouchers)}");
+$('##{@type}_vouchers_tab').find('#paginate').html("#{ j(paginate @vouchers, remote: true)}");

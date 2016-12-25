@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+  %body
+    %div [#{@message.message_type}]
+    %h2= link_to(@message.subject, message_url(@message))
+    %p!= @message.body
+    %p
+      %div Respond to:
+      %div Email #{mail_to(@message.user.email)}
+      %div Phone #{@message.user.phone}

@@ -1,0 +1,5 @@
+= div_for @message, class: "#{@message.message_type} row"  do
+
+ %h2= @message.subject
+ .text-muted #{@message.icon} #{@message.time} #{@message.user}
+ %p!= @message.body

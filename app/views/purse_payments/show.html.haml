@@ -1,0 +1,9 @@
+%h2= t('.title')
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title= t('.details')
+  .panel-body
+    %dl.dl-horizontal
+      - PursePayment::Base.show_attrs.each do |attr|
+        %dt= PursePayment::Base.human_attribute_name(attr)
+        %dd= @purse_payment.send(attr)

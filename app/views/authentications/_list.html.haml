@@ -1,0 +1,8 @@
+%ul.list-unstyled
+  - providers.each do |provider|
+    - provider = provider.to_s
+    %li
+      - if (authentication = resource.authentications.find_by(provider: provider)).present?
+        = render 'authentications/authentication', authentication: authentication, provider: provider
+      - else
+        = render 'authentications/connect', provider: provider

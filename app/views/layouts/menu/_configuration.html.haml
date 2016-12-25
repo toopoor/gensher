@@ -1,0 +1,7 @@
+%nav.navbar.navbar-default{role: 'navigation'}
+  %ul.nav.nav-pills
+    %li{class: current_page?(edit_user_registration_path) ? 'active' : ''}
+      = link_to(t('.profile'), '#details', data: {toggle: 'tab'})
+    %li= link_to(t('.documents'), '#documents', data: {toggle: 'tab'})
+    %li= link_to(t('.password'), '#password', data: {toggle: 'tab'})
+    %li= link_to(t('.omniauth'), '#omniauth', data: {toggle: 'tab'})

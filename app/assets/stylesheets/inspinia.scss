@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require animate/animate.css
+ *= require style
+ *= require font-awesome
+ *= require toastr/toastr.min.css
+ *= require summernote/summernote.css
+ *= require summernote/summernote-bs3.css
+ *= require iCheck/custom
+ */
+
+@import 'override_variables';
+@import 'utilites';
+@import 'base/social-icons';
+
+footer {
+  margin-top: 40px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  min-height: 30px;
+  background: #2f4050;
+  color: $gray-light;
+
+  a:hover {
+    color: $gray-light;
+  }
+
+  hr {
+    border-top: 1px solid #444;
+  }
+
+  p {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .copyright,
+  a {
+    color: $gray-lighter;
+  }
+
+  .phone {
+    color: $gray-lighter;
+    font-size: 1.1em;
+  }
+
+  .social a {
+    background-color: $gray;
+    color: $gray-lighter;
+    display: inline-block;
+    font-size: 12px;
+    height: 28px;
+    margin-right: 8px;
+    padding-top: 3px;
+    text-align: center;
+    width: 28px;
+  }
+
+  .social a:hover {
+    background-color: $gray-lighter;
+    color: $gray;
+  }
+}
+
+video.fullscreen-bg-video {
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8) image_url('black-squares.png');
+}
+
+.widget-parent {
+  img {
+    width: 130px;
+  }
+}
+
+.pay-systems_form {
+  .pay-systems {
+    .pay-system {
+      border: 1px solid transparent;
+      display: inline-block;
+      margin: 0 10px 10px 0;
+
+      &.active,
+      &:hover {
+        border-color: $brand-success;
+      }
+
+      img {
+        cursor: pointer;
+        height: 31px;
+      }
+    }
+  }
+}
+
+.activation_request__pay_system,
+.payment__payer_id {
+  height: 31px;
+}

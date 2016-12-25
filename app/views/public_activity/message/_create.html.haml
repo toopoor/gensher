@@ -1,0 +1,9 @@
+- if activity.trackable
+  - message = activity.trackable.decorate
+  - user = message.owner.decorate
+
+  .media
+    %span.pull-left #{user.icon}
+    .media-body
+      .media-heading #{user.link_to_profile} добавил новость #{message.subject_link}
+      .text-muted #{message.icon} #{message.time}  / #{time_ago_in_words(activity.created_at)}

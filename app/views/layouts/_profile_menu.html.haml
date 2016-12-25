@@ -1,0 +1,56 @@
+.left_menu
+  %ul.nav.nav-pills.nav-stacked
+    %li= link_to(t('.main'), root_path)
+    %li= link_to(t('.news'), messages_path(message_type: 'news', skip_menu: true))
+    %li= link_to(t('.my_news'), messages_path)
+    %li= link_to(t('.parent_blog'), '#')
+    %li= link_to(t('.marketing'), marketing_path)
+    - if current_user.activated_to_invite?
+      %li
+        = link_to('#my_progress', data: {toggle: 'collapse'}) do
+          = t('.my_progress')
+          %b.caret
+        = render '/layouts/menu/my_progress'
+    %li
+      = link_to('#money', data: {toggle: 'collapse'}) do
+        = t('.money')
+        %b.caret
+      = render '/layouts/menu/money'
+    %li= link_to(t('.shop'), '#')
+    - if current_user.activated_to_invite?
+      %li
+        = link_to('#instruments', data: {toggle: 'collapse'}) do
+          = t('.instruments')
+          %b.caret
+        = render '/layouts/menu/instruments'
+    %li
+      = link_to(edit_user_registration_path) do #menu
+        = t('.configuration')
+    %li= link_to(t('.feedback'), new_message_path(message_type: :feedback) )
+    %li= link_to(t('.support'), new_message_path(message_type: :support))
+    %li= link_to("Онлайн конференция", messages_path(message_type: 'conference', skip_menu: true))
+
+  - if current_user.admin? || session[:admin_id]
+    %hr/
+    %ul.nav.nav-pills.nav-stacked.admin
+      - if session[:admin_id]
+        %li= link_to('Админ интерфейс', login_as_users_path(session[:admin_id]))
+      - else
+        %li= link_to(t('.users'), users_path)
+        %li
+          = link_to(activation_requests_path) do
+            = t('.activation_requests')
+            %span.label.label-danger.pull-right= (count = ActivationRequest.pending.count).zero? ? '' : count
+        %li
+          = link_to(voucher_requests_path) do
+            = t('.voucher_requests')
+            %span.label.label-warning.pull-right= (count = VoucherRequest.pending.count).zero? ? '' : count
+        %li
+        %li
+          = link_to(payments_path) do
+            = t('.payments')
+            %span.label.label-info.pull-right= (count = Payment::CashDeposit.pending.count).zero? ? '' : count
+        %li= link_to(t('.purse_payments'), purse_payments_path)
+        %li= link_to(t('.messages'), messages_path)
+        -#%li= link_to(t('.old_users'), old_users_path)
+        -#%li= link_to('Перенос отзывов', old_reviews_path)

@@ -1,0 +1,26 @@
+
+.dl-250 {
+  dt {
+    width: 240px !important;
+  }
+  dd {
+    margin-left: 250px !important;
+  }
+}
+
+.form-control.file, label.file, input.file, .form-group.file {
+  height: auto !important;
+  border: none;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.media-bordered {
+  padding: 5px;
+  border: 3px solid $brand-warning;
+}

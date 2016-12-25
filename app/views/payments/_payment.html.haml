@@ -1,0 +1,7 @@
+%tr{id: dom_id(payment), class: payment.css}
+  %td= payment_counter+1
+  - if current_user.admin?
+    %td= payment.user.decorate.link_to_profile
+  - Payment::Base::PUBLIC_ATTRS.each do |attr|
+    %td{class: attr}= payment.send(attr)
+  %td#actions= render 'payments/actions', payment: payment

@@ -1,0 +1,7 @@
+.panel.panel-success
+  .panel-heading
+    %h3.panel-title= t('.title')
+  .panel-body
+    = user.voucher_request_note
+    - if user.has_voucher_request?
+      %p= t(".status.#{user.voucher_request.state}")

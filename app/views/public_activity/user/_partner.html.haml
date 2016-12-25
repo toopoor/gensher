@@ -1,0 +1,8 @@
+- user = activity.trackable.decorate
+
+.media.ibox-content
+  %span.pull-left #{user.icon}
+  .media-body
+    .media-heading
+      #{user.link_to_profile} зарегистрировался, по ссылке от #{ user.parent.decorate.link_to_profile}.
+    .text-muted #{user.updated_at}  / #{time_ago_in_words(activity.created_at)}

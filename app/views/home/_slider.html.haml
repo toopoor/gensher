@@ -1,0 +1,31 @@
+#carousel-example-captions.carousel.slide{'data-ride' => "carousel"}
+  %ol.carousel-indicators
+    %li.active{data:{ target: '#carousel-example-captions', 'slide-to' => '0'}}
+    %li.active{data:{ target: '#carousel-example-captions', 'slide-to' => '1'}}
+    %li.active{data:{ target: '#carousel-example-captions', 'slide-to' => '2'}}
+    %li.active{data:{ target: '#carousel-example-captions', 'slide-to' => '3'}}
+
+  .carousel-inner
+    .item.active
+      = image_tag('slider/1.png')
+      .carousel-caption
+        %h3 First slide label
+        %p Nulla vitae elit libero, a pharetra augue mollis interdum.
+
+    .item
+      = image_tag('slider/2.png')
+      .carousel-caption
+        %h3 Second slide label
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    .item
+      = image_tag('slider/3.png')
+      .carousel-caption
+        %h3 Third slide label
+        %p Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+    .item
+      = image_tag('slider/4.png')
+      .carousel-caption
+        %h3 Four slide label
+        %p Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+  = link_to(icon('chevron-left'), '#carousel-example-captions', class: 'left carousel-control', 'data-slide' => 'prev')
+  = link_to(icon('chevron-right'), '#carousel-example-captions', class: 'right carousel-control', 'data-slide' => 'next')

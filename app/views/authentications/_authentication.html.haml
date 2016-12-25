@@ -1,0 +1,4 @@
+= link_to(icon("#{t(provider, scope: 'devise.omniauth.providers.icons')} fa-2x active"), '#')
+%span
+  = t('.connected_to', provider: t(provider, scope: 'devise.omniauth.providers.names'))
+  = link_to(content_tag(:span,icon('times', '',  class: 'text-muted', title: t('.destroy_authentication'))), authentication, method: :delete, remote: true, title: t('.destroy_authentication_title', provider: t(provider, scope: 'devise.omniauth.providers.names')), data: {confirm: t('static.are_you_sure')}, class: 'btn btn-ddefault btn-xs')

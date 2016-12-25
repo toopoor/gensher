@@ -1,0 +1,19 @@
+- if @vouchers.empty?
+  .well.well-sm
+    %h4= t('static.empty')
+- else
+  %table.table.table-striped.vouchers__table
+    %thead
+      %tr
+        %th #
+        - if current_user.admin?
+          %th= t('static.owner')
+        - Voucher::PUBLIC_ATTRS.each do |attr|
+          %th= Voucher::Base.human_attribute_name(attr)
+        %th= t('vouchers.user')
+        - if current_user.admin?
+          %th= t('static.actions')
+    %tbody{id: "#{@type}_vouchers"}
+      = render 'vouchers', vouchers: @vouchers
+
+  #paginate= paginate @vouchers, remote: true

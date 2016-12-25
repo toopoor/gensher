@@ -1,0 +1,16 @@
+- tab_types = VoucherRequest::TAB_TYPES
+%h4
+  = t('.count')
+  \:
+  %span.label.label-info= @count
+#voucher-requests
+  %nav.navbar.navbar-default{role: 'navigation'}
+    %ul.nav.nav-pills
+      - tab_types.each do |type|
+        %li= link_to(t(type, scope: 'voucher_requests.nav_types'), "##{type}", data: {toggle: 'tab', url: list_voucher_requests_path(type: type)})
+      %li= link_to(t('vouchers.title'), '#pending_vouchers_tab', data: {toggle: 'tab', url: list_vouchers_path(type: 'pending')})
+
+  .tab-content
+    - tab_types.each do |type|
+      .tab-pane{id: type}
+    .tab-pane#pending_vouchers_tab

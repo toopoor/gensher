@@ -1,0 +1,93 @@
+//= require jquery.Jcrop
+//= require jquery.fileupload-ui
+@import 'override_variables';
+#avatar-crop-modal {
+  .avatar-target {
+    margin-bottom: 10px;
+  }
+  .avatar-preview {
+    overflow: hidden;
+    &.avatar-thumb {
+      height: 120px;
+      width: 120px;
+    }
+    &.avatar-icon {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.jcrop-keymgr {
+  opacity: 0;
+}
+
+#omniauth a {
+  &, &:hover {
+    text-decoration: none
+  }
+}
+
+.omniauth_providers, #omniauth {
+  a > i {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 8px;
+    color: white;
+    padding: 2px 0px;
+  }
+  .fa-facebook, .fa-linkedin, .fa-google-plus,
+  .fa-youtube, .fa-twitter, .fa-vk, .fa-odnoklassniki {
+    opacity: 0.75;
+
+    transition: height 0.35s ease 0s;
+    &:hover, &:active, &:focus, &.active {
+      opacity: 1;
+    }
+  }
+  .fa-facebook {
+    background-color: #3B5998;
+  }
+  .fa-linkedin {
+    background-color: #007bb6;
+  }
+  .fa-google-plus {
+    background-color: #dd4b39;
+  }
+  .fa-google_oauth2 {
+    @extend .fa-google-plus;
+  }
+  .fa-google_oauth2:before {
+    content: "\f0d5";
+  }
+  .fa-youtube {
+    background-color: #bb0000;
+  }
+  .fa-twitter {
+    background-color: #4099FF;
+  }
+  .fa-vk {
+    background-color: #45668e;
+  }
+  .fa-vkontakte {
+    @extend .fa-vk;
+  }
+  .fa-vkontakte:before {
+    content: "\f189";
+  }
+  .fa-odnoklassniki {
+    &.fa-3x {
+      background: image_url('icons/icon-odkl-3x.png') center bottom;
+      width: 38px;
+      height: 36px;
+    }
+    &.fa-2x {
+      background: image_url('icons/icon-odkl-3x.png') center;
+      vertical-align: bottom;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

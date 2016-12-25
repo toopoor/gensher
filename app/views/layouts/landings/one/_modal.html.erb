@@ -1,0 +1,69 @@
+<div id="contactmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= image_tag('one/img/close-icon.png', class: 'close', alt: 'close', data: {dismiss: 'modal'})%>
+        <h4 class="modal-title">Не стесняйтесь, смело задавайте свои вопросы</h4>
+      </div>
+      <div class="modal-body">
+        <!-- contact form -->
+        <div class="contact-section">
+          <%= form_for(LandingContact.new, html: { class: 'contact-form signup-form', id: 'ajax-contact' }) do |f| %>
+              <div class="row section-signup semitrans">
+                <div class="col-md-12">
+                  <!-- name -->
+                  <div class="form-group has-icon-left form-control-name">
+                    <%= f.label :name, class: 'sr-only' %>
+                    <%= f.text_field :name, class: 'form-control form-control-lg', id: 'name', placeholder: LandingContact.human_attribute_name(:name)%>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <!-- email -->
+                  <div class="form-group has-icon-left form-control-email">
+                    <%= f.label :email, class: 'sr-only' %>
+                    <%= f.email_field :email, class: 'form-control form-control-lg', id: 'email', placeholder: LandingContact.human_attribute_name(:email), autocomplete: 'off'%>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <!-- phone number -->
+                  <div class="form-group has-icon-left form-control-phone">
+                    <%= f.label :phone, class: 'sr-only' %>
+                    <%= f.text_field :phone, class: 'form-control form-control-lg', id: 'phone', placeholder: LandingContact.human_attribute_name(:phone), autocomplete: 'off'%>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <!-- address -->
+                  <div class="form-group has-icon-left form-control-address">
+                    <%= f.label :address, class: 'sr-only' %>
+                    <%= f.text_field :address, class: 'form-control form-control-lg', id: 'address', placeholder: LandingContact.human_attribute_name(:address), autocomplete: 'off'%>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <!-- text message -->
+                  <div class="form-group has-icon-left form-control-message">
+                    <%= f.label :message, class: 'sr-only' %>
+                    <%= f.text_area :message, class: 'form-control form-control-lg home-textarea', id: 'message', placeholder: LandingContact.human_attribute_name(:message), autocomplete: 'off'%>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <!-- submit button -->
+                  <div class="form-group">
+                    <%= f.button(class: 'a-btn btn-more contact-btn') do %>
+                        <i class="fa fa-plane" aria-hidden="true"></i>Отправить сообщение
+                    <%- end%>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <p class="submit-btn-bottom-text text-center">Ваш электронный адрес с нами в безопасности, мы не рассылаем спам, и мы ненавидим спам точно так же, как и вы.</p>
+                </div>
+              </div>
+              <!--Result notification -->
+              <div id="error-message" class="text-center"></div>
+              <div id="form-messages"></div>
+          <%-end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

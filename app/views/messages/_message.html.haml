@@ -1,0 +1,19 @@
+- message = message.decorate
+= div_for message do
+  .text-muted.i  #{message.time}
+  .row
+    .col-xs-9
+      %h4.head{class: message.message_type} #{message.subject}
+    .col-xs-3
+      #{message.icon}
+      %strong #{message.user}
+      .btn-group.btn-group-xs.pull-right
+        - if message.can_edit?(current_user)
+          - if message.feedback? && current_user.admin?
+            = link_to message.status, toggle_active_message_path(message), title: 'Change Status', remote: true, class: 'status'
+          = link_to icon('edit'), edit_message_path(message), title: 'Edit', class: 'text-warning'
+          = link_to icon('trash-o'), message, :method => :delete, class: 'text-danger', title: 'Delete', :data => { :confirm => 'Are you sure?' }
+  .row
+    .col-xs-10
+      != message.body
+

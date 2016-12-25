@@ -1,0 +1,141 @@
+@import "bootstrap";
+/*
+*= stub glyphicons
+*/
+@import 'override_variables';
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  box-shadow: none;
+  float: left;
+  margin-left: 0;
+}
+.form-vertical {
+  .radio input[type="radio"],
+  .radio-inline input[type="radio"],
+  .checkbox input[type="checkbox"],
+  .checkbox-inline input[type="checkbox"] {
+    margin-left: -20px;
+  }
+}
+.form-group {
+  margin-bottom: 10px;
+}
+
+.help-block {
+  margin: 0;
+}
+
+.navbar-brand {
+  padding: 0 !important;
+}
+
+.navbar {
+  min-height: 0;
+}
+
+.img-thumbnail {
+  width: 120px;
+  height: 120px;
+  border-color: #869CAF;
+  padding: 0;
+  border-radius: 0;
+}
+
+.img-icon {
+  @extend .img-thumbnail;
+  width: 50px;
+  height: 50px;
+}
+
+.profile {
+  color: #777;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100%
+}
+
+.carousel-indicators li {
+  border: 1px solid $link-color;
+}
+
+.carousel-control .fa-chevron-left,
+.carousel-control .fa-chevron-right,
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  font-size: 30px;
+}
+
+.carousel-control .fa-chevron-left, .carousel-control .icon-next, .carousel-control .fa-chevron-right {
+  left: 50%;
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .fa-chevron-left, .carousel-control .fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+
+.nav > li > a:hover {
+  background: $nav-link-hover-bg;
+}
+
+ul.panel-collapse {
+  margin-left: 20px;
+  padding-left: 0px;
+  height: auto;
+  li {
+    list-style: none;
+    a {
+      text-decoration: none;
+    }
+  }
+  li:hover {
+   text-decoration: underline;
+  }
+}
+
+.has-error .help-inline {
+  @extend .text-danger;
+}
+
+.media,
+.media .media {
+  margin-top: 20px;
+}
+
+.i {
+  font-style: italic;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.padding-horizontal-20 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.font-size-18 {
+  font-size: 18px !important;
+}
+
+$padding-extra-large-vertical:    24px;
+$padding-extra-large-horizontal:  48px;
+$font-size-extra-large:           ceil(($font-size-base * 1.5));
+$line-height-extra-large:         1;
+$btn-border-radius-extra-large:   10px;
+.btn-extra-lg {
+  @include button-size($padding-extra-large-vertical, $padding-extra-large-horizontal, $font-size-extra-large, $line-height-extra-large, $btn-border-radius-extra-large);
+}

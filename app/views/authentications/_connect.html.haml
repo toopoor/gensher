@@ -1,0 +1,5 @@
+- title = t('.sign_in_with', provider: t(provider, scope: 'devise.omniauth.providers.names'))
+= link_to(omniauth_authorize_path(resource_name, provider), title: title) do
+  = icon("#{t(provider, scope: 'devise.omniauth.providers.icons')} fa-2x")
+= link_to(omniauth_authorize_path(resource_name, provider), title: title) do
+  %span= title

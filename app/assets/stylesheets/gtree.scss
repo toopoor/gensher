@@ -1,0 +1,92 @@
+@import "bootstrap/variables";
+.gtree {
+  margin: 0;
+  padding: 0;
+  .row {
+    vertical-align: baseline;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &:hover {
+      background: #eee;
+    }
+    .expand {
+      border: 1px solid $gray-light;
+      background: $gray-lighter;
+      padding: 0 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-left: 5px;
+      float: left;
+      &.empty{ opacity: 0; cursor: default;}
+    }
+    .handle {
+      float: left;
+      cursor: move;
+      margin: 0 5px;
+      padding: 4px;
+    }
+    .best_in_place {
+      display: inline-block;
+      margin: 0 5px;
+      min-width: 110px;
+      &:nth-child(3){min-width: 90px;}
+      &:nth-child(4){min-width: 85px;}
+      &:nth-child(6){min-width: 210px;}
+    }
+    input#amount {
+      width: 80px;
+    }
+    .actions {
+      right: 0;
+      position: absolute;
+      display: inline-block;
+      a {
+        margin: 0 2px;
+      }
+    }
+  }
+  ol {
+    margin: 15px 0 0 13px;
+    padding: 0 0 0 15px;
+    border-left: 1px dashed gray;
+    list-style: none outside none;
+  }
+  li {
+    margin-bottom: 5px;
+    position: relative;
+    list-style: none outside none;
+    border-top: 1px solid #ddd;
+  }
+  > li{
+    &:first-child{
+      border: none;
+    }
+    &:last-child{
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+}
+
+/*.gtree a {*/
+/*font-size: 14px;*/
+/*}*/
+
+/*.gtree a:hover {*/
+/*color: black;*/
+/*}*/
+
+/*.gtree .item {*/
+/*padding: 5px;*/
+/*background: #eee;*/
+/*margin-bottom: 5px;*/
+/*border-radius: 3px;*/
+/*}*/
+
+/*.gtree .item:hover {*/
+/*background: #ddd;*/
+/*}*/

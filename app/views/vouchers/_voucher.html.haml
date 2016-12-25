@@ -1,0 +1,12 @@
+%tr{id: dom_id(voucher), class: voucher.css}
+  %td= voucher_counter+1
+  - if current_user.admin?
+    %td
+      = voucher.link_to_owner
+      .phone= voucher.owner_phone
+      .skype= voucher.owner_skype
+  - Voucher::PUBLIC_ATTRS.each do |attr|
+    %td{class: attr}= voucher.send(attr)
+  %td= voucher.link_to_profile
+  - if current_user.admin?
+    %td#actions= render 'vouchers/actions', voucher: voucher

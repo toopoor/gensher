@@ -1,0 +1,55 @@
+.well.well-sm
+  = simple_form_for(User.new, url: users_path, html: { method: :get}) do |f|
+    .row
+      .col-xs-8= f.input :email, label: false, placeholder: 'user@email', hint: 'введите емейл для поиска'
+      .col-xs-2
+        = f.submit 'Найти', class: 'btn btn-success'
+        = link_to('Все', users_path, class: 'btn btn-info' )
+    .row
+      .col-xs-8
+        .row
+          .col-xs-9.col-xs-offset-3
+            .checkbox
+              = label_tag :in_progress, class: 'padding-left-0' do
+                = check_box_tag :in_progress, nil, params[:in_progress].present?
+                .padding-left-30 В процесе отработки пака
+            .checkbox
+              = label_tag :has_money, class: 'padding-left-0' do
+                = check_box_tag :has_money, nil, params[:has_money].present?
+                .padding-left-30 Положительный баланс
+
+- @users.decorate.each do |user|
+  = div_for(user, class: 'row') do
+    .col-xs-2.text-center
+      #{user.icon}
+      .h5 #{user.link_to_profile}
+    .col-xs-4
+      %span.label.label-info #{user.plan}
+      %ul.list-unstyled.small
+        %li Email: #{user.email}
+        %li Phone: #{user.phone}
+        %li Skype: #{user.skype}
+        %li Affiliate: #{user.affiliate_link}
+        %li Visitka: #{user.vizitka_link}
+        %li Home: #{root_url(subdomain: user.affiliate_token)}
+        %li.omniauth_providers= user.social_links.join(' ').html_safe
+        %li.i Пригласил #{user.invitations_count}
+      %div
+        Документы:
+        - user.documents.decorate.each do |document|
+          = document.file? ? link_to(icon('file-photo-o'), document, target: '_blank', title: "##{document.id} (#{document.created_at.to_s(:short)})") : nil
+    .col-xs-2
+      %ul.list-unstyled
+        %li Баланс: #{user.balance}
+        %li Статус: #{user.plan_state}
+    .col-xs-4.actions
+      -#- if user.base_activated?
+      -#  = link_to(icon('usd')+' Пополнить', h.deposite_form_user_path(object), class: 'btn btn-warning btn-xs')
+      -#= link_to(icon('usd')+' Вывести', '#', class: 'btn btn-danger btn-xs')
+      - unless user.admin?
+        = link_to(icon('user')+ ' Войти', login_as_users_path(user), class: 'btn btn-info btn-xs')
+      -#- if user.accumulated? && Voucher.next.present?
+      -#  = link_to(icon('thumbs-o-up')+' Активировать ваучером', complete_voucher_user_path(user), class: 'btn btn-success btn-xs')
+  %hr
+
+= paginate(@users)

@@ -1,0 +1,15 @@
+%ul.list-group
+  %li.list-group-item
+    %span.badge= @my_team
+    = t('.my_team')
+
+  %li.list-group-item
+    %span.badge= @first_line
+    = t('.first_line')
+  %li.list-group-item
+    %span.badge= @invitations_count
+    = t('.invited')
+
+  %li.list-group-item
+    %span.badge= @invitations_count_inactive
+    = t('.inactive')

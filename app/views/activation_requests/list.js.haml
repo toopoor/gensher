@@ -1,0 +1,4 @@
+var activation_requests = $("##{@type}_activation_requests");
+activation_requests.html("#{ j(render 'activation_requests', activation_requests: @activation_requests)}");
+activation_requests.find('.best_in_place').best_in_place();
+$('##{@type}').find('#paginate').html("#{ j(paginate @activation_requests, remote: true)}");

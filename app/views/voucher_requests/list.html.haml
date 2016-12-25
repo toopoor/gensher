@@ -1,0 +1,18 @@
+- if @voucher_requests.empty?
+  .well.well-sm
+    %h4= t('static.empty')
+- else
+  %table.table.table-striped.voucher_requests__table
+    %thead
+      %tr
+        %th #
+        %th= t('static.user')
+        - VoucherRequest::PUBLIC_ATTRS.each do |attr|
+          %th= VoucherRequest.human_attribute_name(attr)
+        - if %w(all active).include?(@type)
+          %th= t('.activate_period')
+        %th= t('static.actions')
+    %tbody{id: "#{@type}_voucher_requests"}
+      = render 'voucher_requests', voucher_requests: @voucher_requests
+
+  #paginate= paginate @voucher_requests, remote: true

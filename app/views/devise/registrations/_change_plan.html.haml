@@ -1,0 +1,7 @@
+#change_plans.margin-bottom-10
+  = user.change_credit_plan
+  = user.change_small_plan
+  = user.change_payment_plan
+  = user.change_investor_plan
+#activation_note.m-b-sm{class: ('hidden' unless user.has_activation_request?)}= render('devise/registrations/activation_request', user: user)
+#voucher_note.m-b-sm{class: ('hidden' unless user.has_voucher_request? &&  user.has_activation_request?)}= render('devise/registrations/voucher_request', user: user)

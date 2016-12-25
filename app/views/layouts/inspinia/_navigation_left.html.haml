@@ -1,0 +1,137 @@
+%nav.navbar-default.navbar-static-side{ role: 'navigation' }
+  .sidebar-collapse
+    %ul.nav.metismenu#side-menu
+      %li.nav-header
+        .dropdown.profile-element
+          %span
+            = image_tag 'gensherman.png', class: 'img-circle profile-image-circle'
+          - if user_signed_in?
+            %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
+              %span.clear
+                %span.block.m-t-xs
+                  %strong.font-bold
+                    = current_user.full_name
+                %span.text-muted.text-xs.block
+                  = current_user.role.capitalize
+                  %b.caret
+            %ul.dropdown-menu.animated.fadeInRight.m-t-xs
+              %li
+                = link_to edit_user_registration_path, title: current_user.login do
+                  %i.fa.fa-user
+                  = t('.profile', default: 'Profile')
+              %li.divider
+              %li
+                = link_to destroy_user_session_path, method: 'delete' do
+                  %i.fa.fa-sign-out
+                  = t('.logout', default: 'Sign out')
+        .logo-element
+          GS+
+      - if user_signed_in?
+        %li{ class: active_current_page?(root_path) }
+          = link_to root_path do
+            %i.fa.fa-home
+            %span.nav-label= t('.main')
+        -# TODO add no read news active url .special_link
+        %li{ class: active_current_page?(messages_path(message_type: 'conference', skip_menu: true)) }
+          = link_to messages_path(message_type: 'conference', skip_menu: true) do
+            %i.fa.fa-newspaper-o
+            %span.label.label-info.pull-right.hidden 1
+            %span.nav-label= t('.conference')
+        %li{ class: active_current_page?(messages_path(message_type: 'news', skip_menu: true)) }
+          = link_to messages_path(message_type: 'news', skip_menu: true) do
+            %i.fa.fa-newspaper-o
+            %span.nav-label= t('.news')
+        %li{ class: active_messages_page? }
+          = link_to messages_path do
+            %i.fa.fa-list-alt
+            %span.nav-label Мои новости
+        %li
+          %a{ href: '#' }
+            %i.fa.fa-file-text-o
+            %span.nav-label Блог спонсора
+        %li{ class: active_current_page?(marketing_path) }
+          = link_to marketing_path do
+            %i.fa.fa-area-chart
+            %span.nav-label Маркетинг
+
+        - if current_user.activated_to_invite?
+          %li{ class: active_structure_pages? }
+            %a{ href: '#' }
+              %i.fa.fa-users
+              %span.nav-label Моя команда
+              %span.fa.arrow
+            %ul.nav.nav-second-level.collapse
+              %li{ class: active_current_page?(first_line_path) }
+                = link_to(t('.first_line'), first_line_path)
+              %li{ class: active_current_page?(invited_path) }
+                = link_to(t('.invited'), invited_path)
+              %li{ class: active_current_page?(structure_path) }
+                = link_to(t('.my_structure'), structure_path)
+              %li{ class: active_current_page?(stats_path) }
+                = link_to(t('.stats'), stats_path)
+              %li= link_to(t('.progress'), '#')
+        %li{ class: active_money_pages? }
+          %a{ href: '#' }
+            %i.fa.fa-money
+            %span.nav-label Деньги
+            %span.fa.arrow
+          %ul.nav.nav-second-level.collapse
+            %li{ class: active_current_page?(payment_cash_deposits_path) }
+              = link_to(t('.payin'), payment_cash_deposits_path)
+            - if current_user.activated_to_invite?
+              %li{ class: active_current_page?(payment_cash_withdrawals_path)}
+                = link_to(t('.payout'), payment_cash_withdrawals_path)
+              %li{ class: active_current_page?(purse_payment_activations_path) }
+                = link_to(t('.my_balance'), purse_payment_activations_path)
+            - if current_user.show_vouchers_link?
+              %li{ class: active_current_page?(purse_payment_vouchers_path) }
+                = link_to(t('.my_vouchers'), purse_payment_vouchers_path)
+        %li{ class: active_current_page?(companies_path) }
+          = link_to(companies_path) do
+            %i.fa.fa-line-chart
+            %span.nav-label= t('.companies')
+        - if current_user.activated_to_invite?
+          %li{ class: active_instruments_pages? }
+            %a{ href: '#' }
+              %i.fa.fa-bar-chart-o
+              %span.nav-label Инструменты
+              %span.fa.arrow
+            = render '/layouts/menu/instruments'
+        %li{ class: active_current_page?(edit_user_registration_path) }
+          = link_to(edit_user_registration_path) do
+            %i.fa.fa-th-large
+            = t('.configuration')
+        %li{ class: active_new_message_page?(:feedback) }
+          = link_to new_message_path(message_type: :feedback) do
+            %i.fa.fa-twitch
+            %span.nav-label= t('.feedback')
+        %li{ class: active_new_message_page?(:support) }
+          = link_to new_message_path(message_type: :support) do
+            %i.fa.fa-support
+            %span.nav-label= t('.support')
+        - if current_user.admin? || session[:admin_id]
+          %li.active
+            %a{ href: '#' }
+              %i.fa.fa-database
+              %span.nav-label Админ
+              %span.fa.arrow
+            %ul.nav.nav-second-level.collapse.in
+              - if session[:admin_id]
+                %li= link_to('Админ интерфейс', login_as_users_path(session[:admin_id]))
+              - else
+                %li= link_to(t('.users'), users_path)
+                %li
+                  = link_to(activation_requests_path) do
+                    = t('.activation_requests')
+                    %span.label.label-danger.pull-right= (count = ActivationRequest.pending_count).zero? ? '' : count
+                %li
+                  = link_to(voucher_requests_path) do
+                    = t('.voucher_requests')
+                    %span.label.label-warning.pull-right= (count = VoucherRequest.pending.count).zero? ? '' : count
+                %li
+                %li
+                  = link_to(payments_path) do
+                    = t('.payments')
+                    %span.label.label-info.pull-right= (count = Payment::Base.pending_count).zero? ? '' : count
+                %li= link_to(t('.purse_payments'), purse_payments_path)
+                %li= link_to(t('.messages'), messages_path)

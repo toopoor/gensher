@@ -1,0 +1,5 @@
+var voucher_request = $("##{dom_id(@voucher_request)}");
+voucher_request.removeClass('danger info warning success');
+voucher_request.addClass('#{@voucher_request.css}');
+voucher_request.find('.state').html('#{@voucher_request.state}');
+voucher_request.find('#actions').html('#{j render('voucher_requests/actions', voucher_request: @voucher_request)}');

@@ -1,0 +1,8 @@
+= simple_form_for @message, html: { class: 'form-vertical' } do |f|
+  = f.input :message_type, collection: Message::TYPES if current_user.admin?
+  = f.input :subject, wrapper: :vertical
+  = f.input :body, as: :ckeditor,
+                  wrapper: :vertical,
+                  input_html: { ckeditor: { toolbar: 'Easy'},
+                                class: 'summernote'}
+  = f.button :submit

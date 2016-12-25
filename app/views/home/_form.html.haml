@@ -1,0 +1,13 @@
+- if flash[:delivered]
+  .alert.alert-success
+    %a{:class => "close", "data-dismiss" => "alert"} ×
+    = flash[:delivered]
+= simple_form_for @contact, url: contacts_path, method: 'post', role: 'form', remote: true do |f|
+  = hidden_field_tag :msg_type, action_name
+  = f.input :name, placeholder: 'Имя', label: false, input_html: { title: 'Имя'}
+  = f.input :email, placeholder: 'Email', label: false, input_html: {title: 'Email'}
+  = f.input :phone, placeholder: 'Телефон', label: false, input_html: {title: 'Телефон'}
+  = f.input :message, as: :text, input_html: {rows: '4', title: 'Ваше сообщени'}, placeholder: 'Напишите свое сообщение.', label: false
+  .form-group
+    .col-xs-5.col-xs-offset-3
+      = f.submit nil, class: 'btn btn-success'

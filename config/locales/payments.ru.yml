@@ -1,0 +1,94 @@
+ru:
+  purse_payments:
+    'purse_payment/purse_deposit':
+      type: Пополнение счета
+      name: 'Пополнение счета (%{payment_system})'
+      description: 'Пополнение счета при помощи "%{payment_system}" TransactionID #%{id}'
+    'purse_payment/purse_withdrawal':
+      type: 'Вывод денег'
+      name: 'Вывод денег (%{payment_system})'
+      description: 'Вывод денег при помощи "%{payment_system}" TransactionID #%{id}'
+    'purse_payment/system_deposit_fee':
+      type: 'СИСТЕМНЫЙ: Комиссия при пополнении счета'
+      name: 'Комиссия при пополнении счета (%{payment_system})'
+      description: 'Комиссия за ввод средств при помощи "%{payment_system}" TransactionID #%{id}'
+    'purse_payment/activation_by_user':
+      type: 'Оплата активации'
+      name: 'Оплата активации'
+      description: 'Оплата активации TransactionID #%{id}'
+    'purse_payment/activation_from_user':
+      type: 'Активация на счет партнера'
+      name: 'Активация на счет партнера'
+      description: 'Активация на счет партнера %{parent} TransactionID #%{id}'
+      voucher:
+        type: 'Активация на счет инвестора'
+        name: 'Активация на счет инвестора'
+        description: 'Активация на счет инвестора %{parent} TransactionID #%{id}'
+    'purse_payment/activation_by_parent':
+      type: Активация члена команды
+      name: Активация члена команды
+      description: 'Доход от активации пользователя %{user} TransactionID #%{id}'
+    'purse_payment/activation_by_investor':
+      type: Активация по ваучеру
+      name: Активация по ваучеру
+      description: 'Доход от активации ваучера для пользователя %{user} TransactionID #%{id}'
+    'purse_payment/system_activation_by_user':
+      type: 'Оплата комиссии за активацию'
+      name: 'Оплата комиссии за активацию'
+      description: 'Оплата комиссии за активацию TransactionID #%{id}'
+    'purse_payment/system_activation_from_user':
+      type: 'Активация на системный счет'
+      name: 'Активация на системный счет'
+      description: 'Активация на системный счет TransactionID #%{id}'
+    'purse_payment/activation_by_system':
+      type: "СИСТЕМНЫЙ: Активация на системный счет"
+      name: Активация на системный счет
+      description: 'Активация на системный счет от пользователя %{user} TransactionID #%{id}'
+    'purse_payment/activate_plan_with_credit':
+      type: Активация биллинг плана в долг
+      name: Оплата биллинг плана в кредит
+      description: 'Оплата биллинг плана в кредит TransactionID #%{id}'
+    'purse_payment/activation_by_system_with_credit':
+      type: "СИСТЕМНЫЙ: Активация в кредит"
+      name: Активация на системный счет в кредит
+      description: 'Активация на системный счет в кредит для пользователя %{user} TransactionID #%{id}'
+    'purse_payment/voucher_pay':
+      type: Создание ваучеров
+      name: 'Оплата за создание ваучера "%{voucher}"'
+      description: 'Оплата за создание ваучера "%{voucher}" TransactionID #%{id}'
+    'purse_payment/system_voucher':
+      type: "СИСТЕМНЫЙ: Создание ваучеров"
+      name: 'Оплата за создание ваучера "%{voucher}"'
+      description: 'Оплата за создание ваучера "%{voucher}" пользователем %{user} TransactionID #%{id}'
+    'purse_payment/activation_by_voucher':
+      type: "Активация для покупки ваучеров"
+      name: Активация для покупки ваучеров
+      description: "Активация для покупки ваучеров TransactionID #%{id}"
+    'purse_payment/system_voucher_back':
+      type: "СИСТЕМНЫЙ: Возврат после активации ваучера"
+      name: 'Возврат стоимости ваучера "%{voucher}"'
+      description: 'Возврат стоимости ваучера "%{voucher}" пользователю %{user} TransactionID #%{id}'
+    'purse_payment/voucher_back':
+      type: Возврат после активации ваучера
+      name: 'Возврат стоимости ваучера "%{voucher}" после активации'
+      description: 'Возврат стоимости ваучера "%{voucher}" после активации TransactionID #%{id}'
+    'purse_payment/system_voucher_bonus':
+      type: "СИСТЕМНЫЙ: Бонус по ваучеру"
+      name: 'Начистение по бонусному ваучеру "%{voucher}"'
+      description: 'Начистение по бонусному ваучеру "%{voucher}" пользователю %{user} TransactionID #%{id}'
+    'purse_payment/voucher_bonus':
+      type: Бонус по ваучеру
+      name: 'Бонус по ваучеру "%{voucher}"'
+      description: 'Начистение по бонусному ваучеру "%{voucher}" TransactionID #%{id}'
+  'payment/cash_deposit':
+    states:
+      pending: 'В ближайшее время с вами свяжется администратор для дальнейших инструкций'
+      managed: 'После оплаты прикрепите скан или фото копию подтрерждающих документов'
+      active: 'После проверки деньги будут зачислены на ваш счет'
+      canceled: 'Платеж отменен'
+      completed: 'Платеж подтвержден'
+  'payment/cash_withdrawal':
+    states:
+      pending: 'В ближайшее время с вами свяжется администратор'
+      canceled: 'Платеж отменен'
+      completed: 'Платеж проведен'

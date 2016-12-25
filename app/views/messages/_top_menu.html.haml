@@ -1,0 +1,7 @@
+%nav.navbar.navbar-default{role: 'navigation'}
+  %ul.nav.nav-pills
+    %li{class: ['news', nil].include?(params[:message_type]) ? 'active' : ''}= link_to(t('.news'), messages_path)
+    %li{class: params[:message_type].eql?('support') ? 'active' : ''}= link_to(t('.support'), messages_path(message_type: 'support'))
+    %li{class: params[:message_type].eql?('feedback') ? 'active' : ''}= link_to(t('.feedback'), messages_path(message_type: 'feedback'))
+
+    %li.pull-right= link_to(icon('plus text-success') + ' ' + t('layouts.profile_menu.news'), new_message_path(message_type: :news))

@@ -1,0 +1,18 @@
+%nav.navbar.navbar-default.navbar-static-top{role: 'navigation' }
+  .container
+    .collapse.navbar-collapse
+      = link_to('', root_url(subdomain: false), class: 'navbar-brand')
+
+      /right
+      %ul.nav.navbar-nav.navbar-right
+        %li#total_counter
+          %span.label НАС УЖЕ:
+          %span.digits #{total_users}
+
+        - if user_signed_in?
+          %li= link_to t('.profile', default: 'Profile'), edit_user_registration_path, title: current_user.login
+          %li= link_to t('.logout', default: 'Logout'), destroy_user_session_path, method: 'delete'
+        - else
+          %li= link_to  t('sign_in', scope: 'devise.shared.links', default: 'Sign in'), new_user_session_url(subdomain: false)
+          - if request.env['affiliate.tag'].present?
+            %li= link_to t('sign_up', scope: 'devise.shared.links', default: 'Sign up'), new_user_registration_url(subdomain: false)

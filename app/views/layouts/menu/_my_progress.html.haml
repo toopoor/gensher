@@ -1,0 +1,8 @@
+%ul#my_progress.panel-collapse.collapse
+  -#- if current_user.completed?
+  -#  %li= link_to(t('.requests'), user_activation_requests_path)
+  %li= link_to(t('.first_line'), first_line_path)
+  %li= link_to(t('.invited'), invited_path)
+  %li= link_to(t('.my_structure'), structure_path)
+  %li= link_to(t('.stats'), stats_path)
+  %li= link_to(t('.progress'), '#')

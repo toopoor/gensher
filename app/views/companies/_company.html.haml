@@ -1,0 +1,29 @@
+%td
+  = company.name
+  - if company.can_update?(current_user)
+    %p.actions
+      = company.edit_link
+      = company.remove_link
+%td
+  = link_to('', data: { toggle: 'modal', target: '#company-description-modal',
+    description: company.description, name: company.name }) do
+    = image_tag(company.logo.source.thumb.url)
+%td
+  %iframe.embed-responsive-item{ frameborder: '0',
+    src: "https://www.youtube.com/embed/#{company.video_url}",
+    allowfullscreen: '' }
+%td= simple_format(company.marketing)
+%td
+  .widget.p-lg.text-center
+    .m-b-md
+      %i.fa.fa-star-o.fa-2x
+      %h1.m-xs= company.rating
+      %h3.font-bold.no-margins= t('.rating')
+  .text-center
+    - if company.user_vote.persisted?
+      = number_field_tag(:vote, company.user_vote.vote,
+        class: 'star-rating', data: { size: 'xs' }, readonly: true)
+    - else
+      = form_for(company.user_vote, url: company.user_vote_url,
+        remote: true) do |f|
+        = f.number_field(:vote, class: 'star-rating', data: { size: 'xs' })

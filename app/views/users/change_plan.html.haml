@@ -1,0 +1,11 @@
+.row
+  - @plans.each do |plan|
+    .col-md-4
+      .thumbnail{class: plan}
+        .caption
+          %h3= t("plans.#{plan}.name")
+          %p= t("plans.#{plan}.description")
+          - if plan.eql?('credit')
+            %p.alert-danger= t('plan.in_development')
+          - else
+            %p= button_to(t('static.change'), update_plan_user_path, params: {plan: plan}, class: 'btn btn-default')

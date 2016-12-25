@@ -1,0 +1,5 @@
+var activation_request = $("##{dom_id(@activation_request)}");
+activation_request.removeClass('danger info warning success');
+activation_request.addClass('#{@activation_request.css}');
+activation_request.find('.state').html('#{@activation_request.state}');
+activation_request.find('#actions').html('#{j render('activation_requests/actions', activation_request: @activation_request)}');

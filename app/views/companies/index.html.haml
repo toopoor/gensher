@@ -1,0 +1,27 @@
+.companies
+  %h1= t('.title')
+  - if @companies.present?
+    .companies__list
+      %table.table.table-bordered.table-striped.table-hover
+        %thead
+          %tr
+            - %w(name logo video_url description marketing).each do |attr|
+              %th= Company.human_attribute_name(attr)
+            %th= t('.votes')
+
+        %tbody
+          - @companies.each do |company|
+            %tr{ id: dom_id(company) }= render company
+  - if current_user.activated_to_invite?
+    = link_to(t('.add_company'), new_company_path,
+      class: 'btn btn-success btn-outline')
+
+.modal.fade#company-description-modal{ tabindex: '-1', role: 'dialog',
+  aria: { labelledby: 'ComentModalLabel', hidden: 'true' } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ type: 'button', data: { dismiss: 'modal' },
+          aria: { hidden: 'true' } } &times;
+        %h4.modal-title
+      .modal-body

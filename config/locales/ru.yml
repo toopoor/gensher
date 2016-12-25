@@ -1,0 +1,446 @@
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  static:
+    close: Отменить
+    destroy: Удалить
+    complete: Подтвердить
+    cancel: Отменить
+    save_changes: Сохранить изменения
+    are_you_sure: 'Вы уверены?'
+    actions: Действия
+    user: Пользователь
+    owner: 'Владелец'
+    balance: Баланс
+    activate: Активировать
+    activation_credit: Долг
+    empty: По запросу ничего не найдено
+    change: 'Выбрать'
+    send: 'Отправить'
+
+  states:
+    pending: в ожидании
+    managed: 'ожидает оплаты'
+    active: 'ожидает проверки'
+    canceled: отменен
+    completed: подтвержден
+
+  user:
+    states:
+      pending: 'новый'
+      small_activated: '$25 - накопление'
+      activated: 'активирован'
+      accumulated: '$25 - частично оплачен'
+      completed: 'Зеленый свет'
+      voucher: 'Ваучер выдан'
+
+
+  nav_types:
+    all: Все
+    pending: В ожидании
+    canceled: Отменены
+    completed: Подтверждены
+    systemic: В систему
+
+  activations_nav_types:
+    all: Все активы
+    first: Первая линия
+    second: Вторая линия
+
+  access:
+    failed: Вам запрещен оступ к даной странице!!!
+  balance:
+    increase_action: Пополнить баланс
+    contact_to_admin: Пожалуйста свяжитесь с администратором!
+  plan:
+    change: 'Выбрать тарифный план'
+    request: 'Подать заявку'
+    request_submit: 'Подтвердить'
+    activate: Активировать план
+    activated: Активирован
+    deposit_info: 'Недостаточно средст для активации плана!!! Пополните баланс'
+    activate_success: План успешно активирован
+    no_access_to_change: 'План изменить уже нельзя'
+    change_success: 'Тарифный план успешно изменен'
+    in_development: 'В разработке'
+  plans:
+    credit:
+      name: 'Шанс'
+      description: '$25 + кредитный ваучер'
+    small:
+      name: 'Лайт'
+      description: '$50 (облегченный старт)'
+    payment:
+      name: 'Профессионал'
+      description: '$500 (полный пакет сразу)'
+    investor:
+      name: 'Инвестор'
+      description: '$750 ($500 + 10 ваучеров по $25)'
+
+  footer:
+    contact_us: Контакты
+    follow_us: Мы в соц сетях
+    about_us: О нас
+    feedback: Обратная связь
+    feedback_description: Что пишут наши участники
+    terms: Условия использования
+    privacy: Политика конфиденциальности
+    #Terms of use | Privacy policy
+  layouts:
+    profile_menu:
+      main: Домой
+      my_news: Мои новости
+      news: Новости
+      marketing: Маркетинг
+      my_progress: Моя команда
+      money: Деньги
+      parent_blog: Блог спонсора
+      shop: 'Инв. кейс'
+      instruments: Инструменты
+      configuration: Настройка
+      feedback: Оставить отзыв
+      support: Поддержка
+      users: Пользователи
+      activation_requests: 'Оплата'
+      voucher_requests: 'Ваучеры'
+      payments: 'Депозит/Вывод'
+      purse_payments: Платежы
+      messages: Сообщения
+      old_users: Перенос старых пользователей
+    menu:
+      configuration:
+        profile: Мои данные
+        documents: Документы
+        password: Пароль
+        omniauth: Интеграция с соц сетями
+      marketing:
+        shah_markiting: Шахматный марткетинг
+        que: Общая очередь
+      my_progress:
+        requests: 'Заявки'
+        first_line: Первая линия
+        invited: Приглашенные
+        my_structure: Моя структура
+        stats: Статистика
+        progress: Карьера
+      money:
+        score: Балы
+        payin: Пополнить счет
+        my_balance: Мои активы
+        my_vouchers: 'Мои ваучеры'
+      instruments:
+        sms_portal: СМС портал
+        visitka: Визитки
+        app_vk: ВКонтакте
+        app_fb: Facebook
+        email_invitations: Емейл приглашение
+        skype_accounts: Логины скайпов
+
+    top_menu:
+      profile: Профиль
+      logout: Выйти
+
+    inspinia:
+      navigation_top:
+        profile: Профиль
+        logout: Выйти
+      navigation_left:
+        profile: Профиль
+        logout: Выйти
+        main: Dashboard
+        news: Новости
+        conference: Онлайн конференция
+        requests: 'Заявки'
+        first_line: Первая линия
+        invited: Приглашенные
+        my_structure: Моя структура
+        stats: Статистика
+        progress: Карьера
+        score: Балы
+        payin: Пополнить счет
+        payout: Вывести деньги
+        my_balance: Мои активы
+        my_vouchers: 'Мои ваучеры'
+        configuration: Настройка
+        companies: 'Рейтинг компаний'
+        feedback: Оставить отзыв
+        support: Поддержка
+        users: Пользователи
+        activation_requests: 'Оплата'
+        voucher_requests: 'Ваучеры'
+        payments: 'Депозит/Вывод'
+        purse_payments: Платежы
+        messages: Сообщения
+        old_users: Перенос старых пользователей
+  messages:
+    new:
+      support: Запрос в тех поддержку
+      feedback: Обратная связь
+      news: Новость
+    top_menu:
+      feedback: Обратная связь
+      support: Поддержка
+      news: Новости
+  users:
+    invited_users:
+      invite_new: Пригласить
+    email_invitations:
+      new: Отправить приглашение
+    registrations:
+      new:
+        registration_only_with_token: Регистрация доступна только по приглашению
+    import:
+      taked: Пользователь уже существует
+    sidebar:
+      investor:
+        title: 'Ваш инвестор'
+      parent:
+        title: 'ваш спонсор'
+      statistic:
+        title: 'Статистика'
+        up_date: 'На %{date}'
+        balance: 'Мой доход'
+        all_children: 'Моя команда'
+        first_line: 'Первая линия'
+        potential: 'Потенциал аккаунта'
+        new_children: 'Новых участников'
+        all_vouchers: 'Ваучеров в системе'
+        requqests_vouchers: 'Заявки на ваучеры в системе'
+        completed_vouchers: 'Погашено ваучеров в системе'
+
+  old:
+    users:
+      index:
+        all: Все
+        by_import: На импорт
+        without_email: Без email
+        without_phone: Без телефона
+        completed: Подтвержденные
+      actions:
+        completed: Импортирован
+        deleted: Удален
+  activation_requests:
+    nav_types:
+      all: 'Все'
+      pending: 'Новые'
+      managed: 'Ожидают оплаты'
+      active: 'Ожидают проверки'
+      completed: 'Подтвержденные'
+
+    manage_link: 'Подтвердить'
+    complete_link: 'Подтвердить платеж'
+    change: 'сменить план'
+    remove: 'удалить'
+    states:
+      pending: 'новая'
+      managed: 'ожидает оплаты'
+      active: 'ожидают проверки'
+      completed: 'подтвержденная'
+
+    invoice_links:
+      parent: 'платеж партнеру'
+      system: 'платеж в систему'
+      full_system: 'платеж для проверки админом'
+
+    index:
+      modal:
+        comment: 'Подтверждение передачи данных пользователю'
+        save_comment: 'Подтвердить'
+        comment_placeholder: 'Введите комментарий к заявке или реквизиты для оплаты'
+        change_plan: 'Сменить тарифный план'
+      plans:
+        small: '50$'
+        payment: '500$'
+        credit: '25$ + кредитный ваучер'
+        investor: '500$ + 10 ваучеров'
+
+    show:
+      partner_invoice: 'Трансакция партнеру'
+      system_invoice: 'Трансакция в систему'
+      system_only_invoice: 'Подтверждение оплаты'
+
+  voucher_requests:
+    nav_types:
+      all: 'Все'
+      pending: 'Новые'
+      active: 'Выданные'
+      completed: 'Погашенные'
+      canceled: 'Отклоненные'
+    activate_link: 'Активировать'
+    cancel_link: 'Отклонить'
+    reject_link: 'Деактивировать'
+    states:
+      pending: 'новая'
+      activated: 'ваучер активирован'
+      completed: 'ваучер погашен'
+      canceled: 'отклонена'
+      rejected: 'деактивирован'
+      expired: 'Прострочено !!!'
+      expired_full: 'Ваучер прострочен'
+    index:
+      count: 'Ваучеров для выдачи'
+    list:
+      activate_period: 'Дней с активации'
+
+  payment:
+    invoice_file: 'Скан квитанции'
+    invoice_file_added: 'Прикреплено'
+    cash_deposits:
+      new:
+        title: Пополнение счета
+        pay: Оплатить
+      create:
+        cash_deposit_was_successfully_created: Платеж успешно создан
+      index:
+        title: Пополнение счета
+        sub_title: Платежи ожидающие подтверждения
+        user: 'Профиль'
+      show:
+        title: Детали платежа
+        details: Детали
+        invoice: 'Подтверждение оплаты'
+      cash_deposit:
+        cancel: Отменить платеж
+    cash_withdrawals:
+      new:
+        title: 'Заказ на выплату'
+        balance: 'Доступно к выводу'
+        create: 'Заказать'
+      create:
+        cash_withdrawal_was_successfully_created: 'Заявка успешно создана'
+      index:
+        title: 'Заказы на выплату'
+        sub_title: 'Заказы ожидающие выплаты'
+        user: 'Профиль'
+        create: 'Заказать выплату'
+      show:
+        title: 'Детали заявки на выплату'
+        details: 'Детали'
+      cash_withdrawal:
+        cancel: 'Отменить заявку'
+  payments:
+    index:
+      modal:
+        comment: 'Подтверждение передачи данных пользователю для пополнения счета'
+        save_comment: 'Подтвердить'
+        comment_placeholder: 'Введите комментарий к попорлению счета или реквизиты для оплаты'
+  purse_payments:
+    show:
+      title: Детали платежа
+      details: Детали
+  devise:
+    registrations:
+      user_avatar:
+        select_avatar: Загрузить аватар
+        edit_avatar: Обрезать аватар
+        remove_avatar: Удалить аватар
+        crop_avatar: Обрезка аватарки
+
+  authentications:
+    connect:
+      sign_in_with: Подключиться к %{provider}
+    authentication:
+      destroy_authentication: Отключиться
+      connected_to: Подключено к %{provider}
+      destroy_authentication_title: Удалить связь с социальной сетью %{provider}
+
+
+  home:
+    stats:
+      my_team: Моя команда
+      first_line: Первая линия
+      invited: Личные приглашенные
+      inactive: Не активированные
+    index:
+      sign_in: Войти
+  helpers:
+    submit:
+      create: "Отправить"
+      submit: "Сохранить"
+      update: "Обновить"
+  site:
+    title: 'Gensherman - Сообщество интернет предпринимателей!'
+    description: 'Сообщество интернет предпринимателей! Первый в мире генератор команды.'
+    fb_title: "Генератор команды."
+    fb_site_name: "Сообщество интернет предпринимателей!"
+    fb_description: "Возможность создавать конанду и привлекать новых людей через соц сети. Бесплатное использование широкого набота инструментов. Быстрая карьера для активных людей."
+
+  invitations:
+    vk_title: 'Моя сеть'
+    facebook_msg: Присоединяйтесь ко мне. Партнерская ссылка регистрации %{url}
+  instruments:
+    menu:
+      first_line: Первая линия
+      invited_active: Активированные
+      invited_pending: Неактивированные
+
+  vouchers:
+    title: 'Ваучеры'
+    create: Создать ваучер
+    user: 'Получатель'
+    errors:
+      count_zero: Количество ваучеров должно быть больше нуля
+      no_money_in_purse: Недостаточно средств!!! Пополните счет
+      complete: Нет ваучеров
+    success_complete: Пользователь успешно активирован ваучером
+    success_create: Ваучеры успешно созданы
+    nav_types:
+      all: 'Все'
+      pending: 'Новые'
+      activated: 'Выданные'
+      completed: 'Погашенные'
+      canceled: 'Отклоненные'
+    states:
+      pending: 'новый'
+      activated: 'активирован'
+      completed: 'погашен'
+
+  purse_payment:
+    vouchers:
+      index:
+        type: Тип ваучера
+        description: Описание
+        max: Лимит
+        actions: Создать
+        active_count: Активно
+        activated_count: Активировано
+        types:
+          credit: '$500 - Создание команды'
+          half: '$250 - Зароботок +50%'
+          five: '$100 - Зароботок +50%'
+          small: '$25 - Инвестиции в команду'
+        descriptions:
+          credit: 'Возврат средств и НОВЫЙ партнер за каждую активацию'
+          half: 'Возврат средств + $125 за каждую активацию'
+          five: 'Возврат средств + $50 за каждую активацию'
+          small: 'Возврат средств и НОВЫЙ член команды'
+
+  companies:
+    actions:
+      edit: 'изменить'
+      remove: 'удалить'
+    index:
+      title: 'Рейтинг компаний'
+      add_company: 'Добавить компанию'
+      votes: 'Рейтинг'
+    new:
+      title: 'Добавление инвестиционной компании'
+    edit:
+      title: 'Редактирование инвестиционной компании'
+    form:
+      placeholders:
+        name: 'Название компании'
+        video_url: 'Youtube VideoId (?v={VideoId})'
+        description: 'Краткое описание компании'
+        marketing: '6*1000$ = 1800$&#x0a;&#x09;6*6(36)*1000$ = 7520$'
+    company:
+      rating: 'Рейтинг'
+    notice:
+      success_create: 'Компания успешно добавлена'
+      success_update: 'Компания успешно изменена'
+      not_access: 'Редактирование запрещено'
+
+  landing_contacts:
+    create:
+      save_success: 'Сообщение успешно отправлено'
+      save_error: 'Ваше имя, емайл и сообшение не должны быть пустыми'

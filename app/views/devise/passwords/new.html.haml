@@ -1,0 +1,21 @@
+= render 'layouts/inspinia/empty/video'
+.row.h-710
+  .col-sm-6
+    .text-center.animated.fadeInDown
+      = render 'layouts/inspinia/empty/logo'
+  .col-sm-6
+    .middle-box.text-center.loginscreen.animated.fadeInDown
+      %h2= t('.forgot_your_password', default: 'Forgot your password?')
+      = simple_form_for(resource, as: :user,
+                        url: password_path(resource_name),
+                        html: { method: :post }) do |f|
+        = f.error_notification
+        .form-group
+          = f.text_field :login,
+                         placeholder: 'Введите емейл или телефон',
+                         class: 'form-control'
+        .form-group
+          = f.button :submit,
+                     t('.send_me_reset_password_instructions',
+                       default: 'Send me reset password instructions')
+      = render 'devise/shared/links'

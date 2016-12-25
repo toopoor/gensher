@@ -1,0 +1,21 @@
+%h1 Listing informes
+
+%table
+  %tr
+    %th Email
+    %th Token
+    %th
+    %th
+    %th
+
+  - @informes.each do |informe|
+    %tr
+      %td= informe.email
+      %td= informe.token
+      %td= link_to 'Show', informe
+      %td= link_to 'Edit', edit_informe_path(informe)
+      %td= link_to 'Destroy', informe, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Informe', new_informe_path

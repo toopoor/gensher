@@ -1,0 +1,99 @@
+<section id="business-x-plan-section">
+  <div class="section-title">
+    <div class="container">
+      <div class="row">
+        <!-- main title -->
+        <div class="col-md-12">
+          <h2>Стартуйте незамедлительно!</h2>
+          <%= image_tag('one/img/title_line.png') %>
+          <p>Свяжитесь со своим спонсором. Он поможет вам уже в ближайшие несколько часов получить первый положительный результат!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="business-x-plans">
+    <div class="container">
+      <div class="row">
+        <!-- Single item -->
+        <div class="plans-height bond-price-table col-md-3 col-sm-6 reveal-left-fade">
+          <div class="bond-price-inner bg-ff">
+            <h2 class="box-title">ШАНС</h2>
+            <div class="price">
+              <span>$25</span>
+              <p>верь в чудо<br />&nbsp;</p>
+            </div>
+            <div class="box-icon"></div>
+            <div class="content-plans">
+              <p> План "Шанс" дает возможность участия в проекте целеустремленным и добросовестным людям с минимумом затрат. Воспользовавшись помощью партнеров-инвесторов, они получают доступ ко всем инструментам проекта с целью проявить себя, собственными руками и усердием построить свой бизнес в интернете</p>
+            </div>
+            <div class="blog-plan-link">
+              <a href="https://www.youtube.com/watch?v=BnYILQFvRu0" class="lightbox mfp-iframe">Подробнее <i class="fa fa-share" aria-hidden="true"></i></a>
+            </div>
+            <%= link_to(new_user_registration_url(domain: request.domain, subdomain: nil, ref: @user.token, plan: 'credit'),
+                        class: 'btn-plans a-btn btn-more btn-plan-sing') do %><i class="fa fa-sign-in" aria-hidden="true"></i>РЕГИСТРАЦИЯ</a><%-end%>
+          </div>
+        </div>
+        <!-- Single item -->
+        <div class="bond-price-table red col-md-3 col-sm-6  reveal-bottom-fade">
+          <div class="bond-price-inner bg-ff">
+            <h2 class="box-title">ЛАЙТ</h2>
+            <div class="price">
+              <span>$50</span>
+              <p>минимум первоначальных <br />вложений</p>
+            </div>
+            <div class="box-icon"></div>
+            <div class="content-plans">
+              <p> План "Лайт" позволяет воспользоваться пакетом инструментов General Sherman партнерам, не имеющим на руках полной суммы для оплаты аренды пакета инструментов на год. Партнер может оплатить всего одну десятую стоимости пакета, а остальное заработать уже пользуясь инструментами General Sherman</p>
+            </div>
+            <div class="blog-plan-link">
+              <a href="https://www.youtube.com/watch?v=NsbQs4J1DBo" class="lightbox mfp-iframe">Подробнее <i class="fa fa-share" aria-hidden="true"></i></a>
+            </div>
+            <%= link_to(new_user_registration_url(domain: request.domain, subdomain: nil, ref: @user.token, plan: 'small'),
+                        class: 'btn-plans a-btn btn-more btn-plan-sing') do %><i class="fa fa-sign-in" aria-hidden="true"></i>РЕГИСТРАЦИЯ</a><%-end%>
+          </div>
+        </div>
+        <!-- Single item -->
+        <div class="bond-price-table col-md-3 col-sm-6 reveal-left-fade">
+          <div class="bond-price-inner bg-ff">
+            <h2 class="box-title">ПРОФЕССИОНАЛ</h2>
+            <div class="box-icon"></div>
+            <div class="price">
+              <span>$500</span>
+              <p>наиболее эффективный <br />старт</p>
+            </div>
+            <div class="content-plans">
+              <p> Аренда полного пакета инструментов на 1 год. Стартовый план "Профессионал" позволяет в самый короткий срок сформировать собственную MLM-команду, заработать солидную сумму и создать стартовый капитал, необходимый для участия в других партнерских проектах в интернете</p>
+            </div>
+            <div class="blog-plan-link">
+              <a href="https://www.youtube.com/watch?v=ouPBDRoErsw" class="lightbox mfp-iframe">Подробнее <i class="fa fa-share" aria-hidden="true"></i></a>
+            </div>
+            <%= link_to(new_user_registration_url(domain: request.domain, subdomain: nil, ref: @user.token, plan: 'payment'),
+                        class: 'btn-plans a-btn btn-more btn-plan-sing') do %><i class="fa fa-sign-in" aria-hidden="true"></i>РЕГИСТРАЦИЯ</a><%-end%>
+          </div>
+        </div>
+        <!-- Single item -->
+        <div class="bond-price-table col-md-3 col-sm-6 reveal-bottom-fade">
+          <div class="bond-price-inner bg-ff">
+            <h2 class="box-title">ИНВЕСТОР</h2>
+            <div class="price">
+              <span>$750</span>
+              <p>максимум возможностей<br />&nbsp;</p>
+            </div>
+            <div class="box-icon"></div>
+            <div class="content-plans">
+              <p> План "Инвестор" позволяет построить собственную дилерскую сеть без личных приглашений. Инвестируя в собственную команду, он дает возможность целеустремленным людям начать бизнес с минимумом вложений. План включает в себя аренду пакета на 1 год ($500) и выпуск 10 кредитных ваучеров номиналом $25</p>
+            </div>
+            <div class="blog-plan-link">
+              <a href="https://www.youtube.com/watch?v=6BAP_rQ8mAs" class="lightbox mfp-iframe">Подробнее <i class="fa fa-share" aria-hidden="true"></i></a>
+            </div>
+            <%= link_to(new_user_registration_url(domain: request.domain, subdomain: nil, ref: @user.token, plan: 'investor'),
+                        class: 'btn-plans a-btn btn-more btn-plan-sing') do %><i class="fa fa-sign-in" aria-hidden="true"></i>РЕГИСТРАЦИЯ</a><%-end%>
+          </div>
+        </div>
+
+      </div>
+      <!-- End row -->
+    </div>
+    <!-- End container -->
+  </div>
+</section>

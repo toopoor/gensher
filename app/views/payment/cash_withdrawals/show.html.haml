@@ -1,0 +1,10 @@
+%h2= t('.title')
+%h5{ class: @cash_withdrawal.state_notify_css }= @cash_withdrawal.state_notify
+.panel.panel-info
+  .panel-heading
+    %h3.panel-title= t('.details')
+  .panel-body
+    %dl.dl-horizontal
+      - Payment::Base::PUBLIC_ATTRS.each do |attr|
+        %dt= Payment::Base.human_attribute_name(attr)
+        %dd= @cash_withdrawal.send(attr)

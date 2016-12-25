@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>General Sherman</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- businessle Touch Icon -->
+    <!--<link rel="businessle-touch-icon" href="businessle-touch-icon.png">-->
+    <!-- Favicon -->
+    <%= render 'layouts/favicons'%>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i" rel="stylesheet">
+    <!-- Stylesheets -->
+    <%= stylesheet_link_tag 'one'%>
+    <%= javascript_include_tag 'one/modernizr'%>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <!--[if lt IE 8]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehbusinessy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!-- body wrbusinesser START -->
+  <div class="body-wrbusinesser">
+    <!-- preloader START -->
+    <div class="preloader">
+      <div class="spinner-wrap">
+        <div class="spinner"></div>
+        <span class="preloader-text alt-font">Загрузка...</span>
+      </div>
+    </div>
+
+    <!-- preloader END -->
+    <!-- =========================
+        page header START
+    ============================== -->
+    <%= render 'layouts/landings/one/header'%>
+    <!-- page header END -->
+    <!-- =========================
+        Home with about section
+    ============================== -->
+    <%= render 'layouts/landings/one/about'%>
+    <!-- End home section with about -->
+    <!-- =========================
+        service section style
+    ============================== -->
+    <%= render 'layouts/landings/one/service'%>
+    <!-- End services section -->
+    <!-- =========================
+            Why choose us section style
+        ============================== -->
+    <%= render 'layouts/landings/one/presentation'%>
+    <!-- End why section -->
+    <!-- =========================
+        Paradigma section style
+    ============================== -->
+    <%= render 'layouts/landings/one/paradigma'%>
+    <!-- End Paradigma section -->
+    <!-- =========================
+        Testimonial section style
+    ============================== -->
+    <%= render 'layouts/landings/one/testimonial'%>
+    <!-- End testimonial section -->
+    <!-- =========================
+        Plan section style
+    ============================== -->
+    <%= render 'layouts/landings/one/plan'%>
+    <!-- End plan section -->
+    <!-- =========================
+            Investor us section style
+        ============================== -->
+    <%= yield %>
+    <!-- End investor section -->
+    <!-- =========================
+            News section style
+        ============================== -->
+    <%= render 'layouts/landings/one/news'%>
+    <!-- =========================
+        footer style
+    ============================== -->
+    <%= render 'layouts/landings/one/footer'%>
+    <!-- / end footer -->
+  </div>
+  <!-- body wrbusinesser ENDs -->
+  <!-- =========================
+          Contact pop up style
+      ============================== -->
+  <!-- Modal -->
+  <%= render 'layouts/landings/one/modal'%>
+  <!-- End Contact  -->
+  <%= javascript_include_tag 'one'%>
+  <%= render 'layouts/yametrika' %>
+
+  </body>
+
+</html>

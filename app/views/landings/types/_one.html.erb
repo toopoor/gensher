@@ -1,0 +1,54 @@
+<section id="business-x-footer">
+  <div class="section-title-invest">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Спонсор</h2>
+          <%= image_tag('one/img/title_line.png') %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="business-x-why-choose">
+    <div class="container">
+      <div class="row">
+        <!-- PHONES IMAGE -->
+        <div class="col-md-6 reveal-left-fade">
+          <div class="phone-image">
+            <%= image_tag(@user.avatar_url(:source, :square)) %>
+          </div>
+          <div class="text-center"><i class="fa fa-users"></i> Моя команда: <%= @user.children_count%> чел.</div>
+        </div>
+        <!-- RIGHT SIDE WITH BRIEF -->
+        <div class="col-md-6 left-align reveal-right-fade">
+          <!-- why-choose TITLE -->
+          <h3 class="why-sub-title">Ваш спонсор <span><%= @user.short_name%></span></h3>
+          <p>
+
+          </p>
+          <!-- service LIST -->
+          <ul class="service-list">
+            <li><i class="fa fa-check-circle"></i> <%= @user.username%></li>
+            <li><i class="fa fa-list"></i> <b>Контактные данные</b>
+              <hr class="invest">
+              <ul>
+                <li><i class="fa fa-at"></i><%= @user.email%></li>
+                <li><%= @user.skype %></li>
+              </ul>
+            </li>
+            <li><i class="fa fa-users"></i> <b>Ссылки на аккаунты спонсора в соц. сетях</b>
+              <hr class="invest">
+              <%= @user.landing_social_links %>
+            </li>
+            <%- if @user.success_story.present?%>
+              <li><i class="fa fa-font-awesome"></i> <%= simple_format(@user.success_story)%></li>
+            <%- end%>
+          </ul>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+</section>

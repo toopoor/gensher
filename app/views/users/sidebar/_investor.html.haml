@@ -1,0 +1,10 @@
+- user = current_user.decorate
+- if user.has_investor?
+  .widget-head-color-box.red-bg.p-lg.text-center.widget-parent
+    .m-b-md
+      %h2.font-bold.no-margins= user.investor_full_name
+      %small= t('.title')
+    = user.investor_square
+    %div= user.investor_social_links_inspinia
+    .time-progress= user.voucher_request_time_progress
+    .progress-expired= user.voucher_request_progress_expired

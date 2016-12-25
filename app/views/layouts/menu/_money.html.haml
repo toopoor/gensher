@@ -1,0 +1,6 @@
+%ul#money.panel-collapse.collapse
+  %li= link_to(t('.payin'), payment_cash_deposits_path)
+  - if current_user.activated_to_invite?
+    %li= link_to(t('.my_balance'), purse_payment_activations_path)
+  - if current_user.base_activated? || current_user.my_vouchers.present?
+    %li= link_to(t('.my_vouchers'), purse_payment_vouchers_path)

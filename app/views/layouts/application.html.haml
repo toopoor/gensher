@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : t('site.title')
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : t('site.description')}"}
+    %meta{property: 'og:title', content: t('site.fb_title') }
+    %meta{property: 'og:site_name', content: t('site.fb_site_name')}
+    %meta{property: 'og:description', content: t('site.fb_description')}
+    = render 'layouts/favicons'
+    = stylesheet_link_tag 'application', media: 'all'
+    = yield :css
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+  %body{class: "#{controller_name} #{action_name}"}
+    = render 'layouts/yametrika'
+    = render 'layouts/sender'
+    %header
+      .top_menu
+        = render 'layouts/top_menu'
+    #main-conteiner.container.container-fluid
+      - if user_signed_in?
+        .row
+          .col-xs-2
+            = render 'layouts/profile_menu'
+          .col-xs-10.content
+            = render 'layouts/messages'
+            = yield
+      - else
+        = render 'layouts/messages'
+        = yield
+
+    = render 'layouts/footer'

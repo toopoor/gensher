@@ -1,0 +1,23 @@
+= render 'layouts/inspinia/empty/video'
+.row.h-710
+  .col-sm-6
+    .text-center.animated.fadeInDown
+      = render 'layouts/inspinia/empty/logo'
+  .col-sm-6
+    .middle-box.text-center.loginscreen.animated.fadeInDown
+      %h2= t('.resend_confirmation_instructions',
+              default: 'Resend confirmation instructions')
+      = simple_form_for(resource, as: :user,
+                        url: confirmation_path(resource_name),
+                        html: { method: :post }) do |f|
+        = f.error_notification
+        = f.full_error :confirmation_token
+        .form-group
+          = f.text_field :login,
+                         placeholder: 'Введите емейл или телефон',
+                         class: 'form-control'
+        .form-group
+          = f.button :submit,
+                     t('.resend_confirmation_instructions',
+                       default: 'Resend confirmation instructions')
+      = render 'devise/shared/links'

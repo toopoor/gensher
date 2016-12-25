@@ -1,0 +1,14 @@
+- if @purse_payments.empty?
+  .well.well-sm
+    %h4= t('static.empty')
+- else
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        - PursePayment::Base.public_attrs_by(current_user).each do |attr|
+          %th= PursePayment::Base.human_attribute_name(attr)
+    %tbody{id: "#{@type}_purse_payments"}
+      = render 'purse_payments', purse_payments: @purse_payments
+
+  #paginate= paginate @purse_payments, remote: true

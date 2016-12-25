@@ -1,0 +1,27 @@
+%footer
+  .container
+    .row
+      .col-xs-4
+        %h4= t('footer.contact_us')
+        %p
+          -#%div.phone (048) 1234 567; (724) 1234 567
+          %div Email: #{mail_to('support@gemsherman.com')}
+          %div Skype: #{link_to('gensherman.com','skype:gensherman.com?chat')}
+      .col-xs-4.social
+        %h4= t('footer.follow_us')
+        = link_to(icon('facebook fa-lg'), 'https://www.facebook.com/GenSherman')
+        = link_to(icon('google-plus fa-lg'), 'https://plus.google.com/u/0/communities/105998006195058939288' )
+        = link_to(icon('vk fa-lg'), 'http://vk.com/gensherman')
+        = link_to(icon('twitter fa-lg'), 'https://twitter.com/GenshermanCom')
+        = link_to(icon('youtube fa-lg'), 'http://www.youtube.com/channel/UCUPe-eWmOXWFOHTCzNYW_pQ/videos')
+      .col-xs-4
+        %h4= t('footer.about_us')
+        %p= link_to(t('footer.feedback_description'), users_feedback_url(subdomain: false))
+        %div= link_to(t('footer.feedback'), feedback_url(subdomain: false), class: 'btn btn-primary')
+    %hr/
+    .row
+      .col-xs-12.text-center.copyright
+        = link_to(t('footer.terms'), terms_url(subdomain: false))
+        \|
+        = link_to(t('footer.privacy'), privacy_url(subdomain: false))
+        %div Copyright © General Sherman. All rights reserved

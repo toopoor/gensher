@@ -1,0 +1,7 @@
+.omniauth_providers
+  %p.text-white.text-center= t('.sign_in_with_social')
+  .list
+    .social-icons.full-opacity.white-color
+      %ul
+        - providers.each do |prov|
+          = social_li(omniauth_authorize_path(resource_name, prov), prov)

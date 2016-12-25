@@ -1,0 +1,39 @@
+- if current_user.base_activated?
+  %h4
+    = t('static.balance')
+    \:
+    %span.label.label-success= current_user.decorate.balance
+    = link_to(t('balance.increase_action'), new_payment_cash_deposit_path, class: 'btn btn-default')
+  %table.table
+    %thead
+      %tr
+        - %w(type description max actions active_count activated_count).each do |th|
+          %th= t(".#{th}")
+    %tbody
+      - Voucher::PUBLIC_TYPES.each do |voucher|
+        - max = current_user.vouchers_max(voucher)
+        %tr
+          %td= t(".types.#{voucher}")
+          %td= t(".descriptions.#{voucher}")
+          %td= max
+          %td
+            = form_tag(purse_payment_vouchers_path, class: 'form-inline') do
+              = hidden_field_tag :type, voucher
+              .input-group
+                = number_field_tag :count, 1, min: 1, max: max, step: 1, class: 'form-control'
+                %span.input-group-btn
+                  = button_tag('', class: 'btn btn-info') do
+                    = icon('check')
+          %td= current_user.vouchers_active(voucher)
+          %td= current_user.vouchers_activated(voucher)
+- tab_types = Voucher::TAB_TYPES
+%h3= t('vouchers.title')
+#voucher-requests
+  %nav.navbar.navbar-default{role: 'navigation'}
+    %ul.nav.nav-pills
+      - tab_types.each do |type|
+        %li= link_to(t(type, scope: 'vouchers.nav_types'), "##{type}_vouchers_tab", data: {toggle: 'tab', url: list_vouchers_path(type: type)})
+
+  .tab-content
+    - tab_types.each do |type|
+      .tab-pane{id: "#{type}_vouchers_tab"}

@@ -1,0 +1,9 @@
+= render 'instruments/menu'
+
+- @users.decorate.each do |user|
+  .row
+    .col-xs-2= user.icon
+    .col-xs-3= user.link_to_profile
+    .col-xs-3= user.phone
+%br
+= link_to(icon('download') + ' Download', instruments_first_line_path(download: true), class: 'btn btn-success', title: 'Dowload')

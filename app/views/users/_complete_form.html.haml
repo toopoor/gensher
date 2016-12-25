@@ -1,0 +1,9 @@
+= form_tag(complete_user_path(user), class: 'form-inline', remote: true) do
+  .form-group
+    .input-group
+      .input-group-addon
+        = icon('usd')
+      = number_field_tag(:amount, 500, class: 'form-control', placeholder: t('static.activation_credit'), min: 0, step: 10, pattern: '[0-9]{1,4}')
+    .input-group
+      = button_tag('', class: 'fa fa-check btn btn-sm btn-success',title: t('static.activate'))
+      = link_to(icon('ban'), complete_close_user_path(user), class: 'btn btn-xs btn-default', remote: true)

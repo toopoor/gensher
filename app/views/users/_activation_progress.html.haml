@@ -1,0 +1,6 @@
+- user = current_user
+- if user.show_activation_progress?
+  .small-plan-activation__list<>
+    - 20.times.each do |i|
+      .small-plan-activation__item{class: user.activation_progress_class(i)}<>
+        %span{style: user.small_plan_activation_style(i)}

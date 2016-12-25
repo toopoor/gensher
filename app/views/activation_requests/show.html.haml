@@ -1,0 +1,16 @@
+- if @activation_request.need_parent_invoice?
+  #parent-invoise
+    %h3= t('.partner_invoice')
+    = simple_form_for(@activation_request, html: { multipart: true}) do |f|
+      = f.error_notification
+      = f.file_field :parent_invoice_file
+      %br
+      = f.button :submit, t('static.send')
+- if @activation_request.need_system_invoice?
+  #system-invoise
+    %h3= @activation_request.system? ? t('.system_only_invoice') : t('.system_invoice')
+    = simple_form_for(@activation_request, html: { multipart: true}) do |f|
+      = f.error_notification
+      = f.file_field :system_invoice_file
+      %br
+      = f.button :submit, t('static.send')

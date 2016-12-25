@@ -1,0 +1,4 @@
+$('.feedback_form').html("#{escape_javascript(render 'form') }");
+
+- if @delivered
+  $('form input, form textarea').attr("disabled", true);

@@ -1,0 +1,8 @@
+.border-bottom.dashboard-header
+  - unless action_name.eql?('feedback') || params[:skip_menu].present?
+    = render 'messages/top_menu'
+  .messages
+    = render @sysnews if @sysnews
+    = render @messages
+
+  = paginate @messages

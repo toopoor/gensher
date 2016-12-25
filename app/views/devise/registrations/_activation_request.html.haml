@@ -1,0 +1,25 @@
+.panel.panel-danger
+  .panel-heading
+    %h3.panel-title= t('.plan.not_activated.title')
+  .panel-body
+    - if user.has_activation_request?
+      - if user.activation_pending?
+        %p= t('.status.pending.description')
+      - if user.activation_managed?
+        - if user.activation_request.comment.present?
+          %h4= t('.request.comment')
+          .bordered.padding-10.margin-bottom-10= simple_format(user.activation_request.comment)
+        %p= t('.status.managed.description')
+        = user.activation_send_link
+      - if user.activation_active?
+        %p= t('.status.active.description')
+    - else
+      %p= t('.plan.not_activated.description')
+      = simple_form_for(user.build_activation_request, url: activation_requests_path, html: { class: 'form-vertical hidden pay-systems_form', id: 'activation_request_form'}) do |f|
+        = f.label :pay_system
+        = f.input :pay_system, as: :hidden
+        .pay-systems
+          - ActivationRequest::PAY_SYSTEMS.each do |pay|
+            .pay-system{class: "#{pay} #{'active' if pay.eql?(f.object.pay_system)}"}= image_tag("pays/#{pay}.jpg", onclick: "ActivationRequestForm.change('#{pay}')")
+        = f.submit t('plan.request_submit'), class: 'btn btn-success'
+      = user.activation_request_button

@@ -1,0 +1,5 @@
+%ul.nav.nav-pills
+  %li= link_to(t('.first_line'), instruments_first_line_path)
+  %li= link_to(t('.invited_active'), instruments_invited_path(type: 'active'))
+  %li= link_to(t('.invited_pending'), instruments_invited_path(type: 'pending'))
+%br

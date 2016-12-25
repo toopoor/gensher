@@ -1,0 +1,14 @@
+= render 'layouts/inspinia/empty/video'
+.row.h-710
+  .col-sm-6
+    .text-center.animated.fadeInDown
+      = render 'layouts/inspinia/empty/logo'
+  .col-sm-6
+    .middle-box.text-center.loginscreen.animated.fadeInDown
+      %h2= t('.sign_in', default: 'Sign in')
+      = render 'devise/sessions/form'
+      - if devise_mapping.omniauthable? && request.env['affiliate.tag']
+        %p
+          = render 'devise/shared/omniauth_links',
+                   providers: resource_class.omniauth_providers
+      %p= render 'devise/shared/links'

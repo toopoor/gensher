@@ -1,0 +1,2 @@
+$("##{dom_id(@company_vote.company)}").html("#{ j(render(@company_vote.company.decorate))}");
+$("##{dom_id(@company_vote.company)}").find('input.star-rating').rating({showCaption: false,showClear: false});

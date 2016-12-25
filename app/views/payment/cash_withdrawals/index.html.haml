@@ -1,0 +1,19 @@
+%h2= t('.title')
+.text-center
+  = link_to(t('.create'),
+            new_payment_cash_withdrawal_path,
+            class: 'btn btn-success btn-lg')
+- if @cash_withdrawals.present?
+  %h3= t('.sub_title')
+  %table.table.table-bordered.table-hover
+    %thead
+      %tr
+        %th #
+        - if current_user.admin?
+          %th= t('.user')
+        - Payment::Base::PUBLIC_ATTRS.each do |attr|
+          %th= Payment::Base.human_attribute_name(attr)
+        %th
+    %tbody
+      = render partial: 'payments/payment',
+               collection: @cash_withdrawals, as: :payment

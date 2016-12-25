@@ -1,0 +1,4 @@
+var voucher_requests = $("##{@type}_voucher_requests");
+voucher_requests.html("#{ j(render 'voucher_requests', voucher_requests: @voucher_requests)}");
+voucher_requests.find('.best_in_place').best_in_place();
+$('##{@type}').find('#paginate').html("#{ j(paginate @voucher_requests, remote: true)}");

@@ -1,0 +1,11 @@
+%tr{id: dom_id(voucher_request), class: voucher_request.css}
+  %td= voucher_request_counter+1
+  %td
+    = voucher_request.link_to_profile
+    .phone= voucher_request.phone
+    .skype= voucher_request.skype
+  - VoucherRequest::PUBLIC_ATTRS.each do |attr|
+    %td{class: attr}= voucher_request.send(attr)
+  - if %w(all active).include?(@type)
+    %td= voucher_request.activate_period
+  %td#actions= render 'voucher_requests/actions', voucher_request: voucher_request

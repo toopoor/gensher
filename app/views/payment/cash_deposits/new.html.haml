@@ -1,0 +1,16 @@
+%h2= t('.title', default: 'New cash deposit')
+= simple_form_for(@cash_deposit, url: payment_cash_deposits_path, html: {class: 'pay-systems_form', id: 'cash_deposit_form'}) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :amount, required: true, autofocus: true
+  .form-inputs
+    = f.input :payer_id, as: :hidden
+    .form-group
+      .col-sm-3= f.label :payer_id
+      .col-sm-9
+        .pay-systems
+          - Payment::Deposit::PAY_SYSTEMS.each do |pay|
+            .pay-system{class: "#{pay} #{'active' if pay.eql?(f.object.payer_id)}"}= image_tag("pays/#{pay}.jpg", onclick: "CashDepositForm.change('#{pay}')")
+  .row
+    .col-xs-3.col-xs-offset-3
+      = f.button :submit, t('.pay', default: 'Pay')

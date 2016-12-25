@@ -1,0 +1,11 @@
+- user = current_user.decorate
+- if user.has_parent?
+  - parent = user.parent.decorate
+  .widget-head-color-box.navy-bg.p-lg.text-center.widget-parent
+    .m-b-md
+      %h2.font-bold.no-margins
+        = parent.full_name
+      %small= t('.title')
+    = image_tag parent.avatar_url(:source, :square), class: 'img-circle circle-border m-b-md'
+    %div
+      = parent.social_links_inspinia

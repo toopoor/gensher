@@ -1,0 +1,14 @@
+- if @activations.empty?
+  .well.well-sm
+    %h4= t('static.empty')
+- else
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        - PursePayment::Base.activations_attrs.each do |attr|
+          %th= PursePayment::Base.human_attribute_name(attr)
+    %tbody{id: "#{@type}_activations"}
+      = render 'purse_payment/activations/activations', activations: @activations
+
+  #paginate= paginate @activations, remote: true

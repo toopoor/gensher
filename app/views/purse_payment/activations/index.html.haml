@@ -1,0 +1,14 @@
+%h4
+  = t('static.balance')
+  \:
+  %span.label.label-success= current_user.decorate.balance
+- tab_types = %w(all first)
+#payment_activations
+  %nav.navbar.navbar-default{role: 'navigation'}
+    %ul.nav.nav-pills
+      - tab_types.each do |type|
+        %li= link_to(t(type, scope: 'activations_nav_types'), "##{type}", data: {toggle: 'tab', url: list_purse_payment_activations_path(type: type)})
+
+  .tab-content
+    - tab_types.each do |type|
+      .tab-pane{id: type}

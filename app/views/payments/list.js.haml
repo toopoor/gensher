@@ -1,0 +1,4 @@
+var payments = $("##{@type}_payments");
+payments.html("#{ j(render 'payments', payments: @payments)}");
+payments.find('.best_in_place').best_in_place();
+$('##{@type}').find('#paginate').html("#{ j(paginate @payments, remote: true)}");

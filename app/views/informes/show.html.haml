@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @informe.email
+%p
+  %b Token:
+  = @informe.token
+
+= link_to 'Edit', edit_informe_path(@informe)
+\|
+= link_to 'Back', informes_path

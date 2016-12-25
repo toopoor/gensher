@@ -1,0 +1,2 @@
+var html = "#{(error = @notice).present? ? ('<span class=\"label label-danger\">' + error + '</span>').html_safe : j(render 'actions', user: @user) }";
+$('##{dom_id(@user, :node)}').find('.actions').html(html);

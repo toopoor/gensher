@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'Gensherman'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Gensherman'}"}
+    = stylesheet_link_tag 'under/under_construction', media: 'all'
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+  %body.under_construction
+    .container
+      %header
+        #logo= link_to(image_tag('logo-45.png'))
+        #contact_details
+          %div support@gensherman.com
+          %div Tel: +380980000000
+      %main{:role => "main"}
+        = render 'layouts/messages'
+        .container.container-fluid
+          = yield
+      %footer.text-center
+        Copyright © General Sherman. All rights reserved

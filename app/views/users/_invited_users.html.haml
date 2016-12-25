@@ -1,0 +1,7 @@
+.row
+  .col-xs-2.text-right
+    = link_to(t('.invite_new'), new_user_invitation_path, class: 'btn btn-success')
+- users.in_groups_of(6, false).each do |grouped_users|
+  .row.invited_users
+    - grouped_users.each do |user|
+      .col-xs-2.text-center= render user.decorate

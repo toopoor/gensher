@@ -1,0 +1,5 @@
+var payment = $(".#{dom_id(@payment)}");
+payment.removeClass('danger info warning success');
+payment.addClass('#{@payment.css}');
+payment.find('.state').html('#{@payment.state}');
+payment.find('#actions').html('#{j render('payments/actions', payment: @payment)}');

@@ -1,0 +1,4 @@
+%tr[activation]
+  %td= activation_counter+1
+  - PursePayment::Base.activations_attrs.each do |attr|
+    %td{class: attr}= activation.send(attr)

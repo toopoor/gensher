@@ -1,0 +1,10 @@
+- if user.completed?
+  %span.label.label-success= t('.completed')
+- elsif user.deleted?
+  %span.label.label-danger= t('.deleted')
+- else
+  - if user.imported?
+    = link_to(complete_old_user_path(user), remote: true, method: :post, title: t('static.complete'), class: 'btn btn-xs btn-info') do
+      = icon('check')
+  = link_to(user, remote: true, method: :delete, title: t('static.destroy'), data: {confirm: t('static.are_you_sure')}, class: 'btn btn-xs btn-danger') do
+    = icon('ban')

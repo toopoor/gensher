@@ -1,0 +1,21 @@
+ru:
+  devise:
+    invitations:
+      send_instructions: 'Приглашение было отправлено на %{email}.'
+      invitation_token_invalid: 'The invitation token provided is not valid!'
+      updated: 'Ваш пароль был успешно установлен. Теперь вы вошли в систему.'
+      no_invitations_remaining: "No invitations remaining"
+      invitation_removed: 'Ваше приглашение было удалено.'
+      new:
+        header: Отправить приглашение
+        submit_button: Отправить приглашение
+      edit:
+        header: Установите пароль
+        submit_button: Установить пароль
+    mailer:
+      invitation_instructions:
+        subject: 'Приглашение'
+        hello: 'Привет %{email}'
+        someone_invited_you: 'Кто-то пригласил вас на %{url}, вы можете принять принлашение пройдя по ссылке ниже.'
+        accept: Принять приглашение
+        ignore: "Если вы не хотите, принимать приглашение, игнорируйте это сообщение.<br/>Ваша учетная запись не будет создана, пока вы не перешли по ссылке выше чтобы установить пароль."

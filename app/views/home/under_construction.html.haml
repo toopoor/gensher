@@ -1,0 +1,21 @@
+.well.text-center
+  .text
+    %h1 Сайт находится в разработке
+  .counter
+    %h5 Поредположительное время запуска:
+    #defaultCountdown.hasCountdown
+      = time_to_start
+  .details
+    %br/
+    %h5 Наберите емейл и вы проинформируем Вас!
+    %div
+      = form_for(@informe, remote: true) do |f|
+        = f.text_field :email, value: 'E-mail', onfocus: "if(this.value=='E-mail'){this.value=''};", onblur: "if(this.value==''){this.value='E-mail'};"
+        = f.submit(:send, class: 'btn btn-info')
+%br/
+%p
+  .text-center
+    %h4.btn.btn-success{onclick: "$('.feedback').show(); $(this).hide()"} Связаться с нами
+.row.feedback{style: 'display: none'}
+  .col-xs-10.col-xs-offset-1.feedback_form
+    = render 'form'

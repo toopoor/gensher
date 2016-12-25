@@ -1,0 +1,23 @@
+- tab_types = Payment::TAB_TYPES
+#payments
+  %nav.navbar.navbar-default{role: 'navigation'}
+    %ul.nav.nav-pills
+      - tab_types.each do |type|
+        %li= link_to(t(type, scope: 'nav_types'), "##{type}", data: {toggle: 'tab', url: type_payments_path(type: type)})
+
+  .tab-content
+    - tab_types.each do |type|
+      .tab-pane{id: type}
+
+#payment-comment-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="PaymentCommentModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+        %h4.modal-title= t('.modal.comment')
+      .modal-body
+        = form_tag('', remote: true, authenticity_token: true) do
+          .form-group= text_area_tag 'payment[comment]', '', placeholder: t('.modal.comment_placeholder'), class: 'form-control'
+      .modal-footer
+        %button(type="button" class="btn btn-default btn-sm" data-dismiss="modal")= t('static.close')
+        %button(type="submit" class="btn btn-primary" id="save_comment")= t('.modal.save_comment')

@@ -1,0 +1,16 @@
+- if @payments.empty?
+  .well.well-sm
+    %h4= t('static.empty')
+- else
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th= t('static.user')
+        - Payment::Base::PUBLIC_ATTRS.each do |attr|
+          %th= Payment::Base.human_attribute_name(attr)
+        %th= t('static.actions')
+    %tbody{id: "#{@type}_payments"}
+      = render 'payments', payments: @payments
+
+  #paginate= paginate @payments, remote: true
